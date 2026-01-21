@@ -1,0 +1,30 @@
+# Mermaid diagram for Payment Method Change Flow
+# Source: Page 14 of Technical Specification v2.6
+
+flowchart TD
+    A[Pocetak: Promjena nacina placanja] --> B[Provjera postojanja fiskaliziranog racuna]
+    B --> C{Racun je fiskaliziran?}
+    C -->|Ne| D[Greska: Racun nije fiskaliziran]
+    D --> E[Kraj s greskom]
+    C -->|Da| F[Unos novih podataka o placanju]
+    F --> G[Formiranje zahtjeva za promjenu placanja]
+    G --> H[Potpisivanje zahtjeva]
+    H --> I[Slanje zahtjeva CIS-u]
+    I --> J{Odgovor CIS-a primljen?}
+    J -->|Ne| K[Provjeri mreznu vezu]
+    K --> L[Ponovi slanje zahtjeva]
+    L --> I
+    J -->|Da| M{Zahtjev je prihvacen?}
+    M -->|Ne| N[Provjeri gresku u odgovoru]
+    N --> O{Greska je tranzicijenta?}
+    O -->|Da| L
+    O -->|Ne| P[Prijavi gresku]
+    P --> E
+    M -->|Da| Q[Spremi potvrdu o promjeni]
+    Q --> R[Kraj - uspjesna promjena]
+
+    style A fill:#e1f5e1
+    style R fill:#e1f5e1
+    style E fill:#f5e1e1
+    style I fill:#fff4e1
+    style M fill:#fff4e1

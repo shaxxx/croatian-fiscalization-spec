@@ -1,0 +1,35 @@
+# Mermaid diagram for Response Structure with Error Handling
+# Source: Page 28 of Technical Specification v2.6
+
+flowchart TD
+    A[Primljen odgovor od CIS-a] --> B{Status odgovora}
+    B -->|Status = 200 OK| C[Odgovor je uspjesan]
+    C --> D{Provjeri sadrzaj odgovora}
+    D -->|Sadrzi JIR| E[Uspjesna fiskalizacija]
+    D -->|Sadrzi potvrdu| F[Uspjesna operacija]
+
+    B -->|Status != 200 OK| G[Greska u komunikaciji]
+    G --> H{Tip greske}
+    H -->|Network Error| I[Mrezna greska]
+    H -->|Timeout| J[Isteklo vrijeme cekanja]
+    H -->|Server Error| K[Greska na posluzitelju]
+
+    B -->|Status = 500 Internal Server Error| L{Provjeri sadrzaj greške}
+    L -->|Sadrzi CISException| M[Strukturna greska CIS-a]
+    M --> N[Provjeri SifraGreske]
+    N --> O{Broj greske}
+    O -->|13| P[Greska u validaciji podataka]
+    O -->|14| Q[Greska u potpisu]
+    O -->|Ostalo| R[Opca greska]
+
+    L -->|Sadrzi Soap Fault| S[SOAP greska]
+    S --> T[Provjeri faultstring]
+
+    style E fill:#e1f5e1
+    style F fill:#e1f5e1
+    style I fill:#f5e1e1
+    style J fill:#f5e1e1
+    style K fill:#f5e1e1
+    style P fill:#f5e1e1
+    style Q fill:#f5e1e1
+    style R fill:#f5e1e1

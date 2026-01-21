@@ -1,0 +1,35 @@
+# Mermaid diagram for Signature Placement in SOAP Message
+# Source: Page 54 of Technical Specification v2.6
+
+flowchart TD
+    A[Pocetak: Slanje SOAP poruke] --> B[Formiranje SOAP envelope]
+    B --> C[SOAP Header]
+    C --> D[SOAP Body]
+    D --> E[Ekstrakcija body sadrzaja]
+    E --> F[Provjera SignatureXml elementa]
+    F --> G{SignatureXml postoji?}
+    G -->|Ne| H[Dodavanje praznog SignatureXml elementa]
+    H --> I[Potpisivanje sadrzaja]
+    I --> J[Ugradnja potpisa u SignatureXml]
+    J --> K[SignatureXml je popunjen]
+
+    G -->|Da| K
+
+    K --> L[Formiranje SOAP envelope s potpisanim body-em]
+    L --> M[<soap:Envelope>]
+    M --> N[<soap:Header>]
+    N --> O[<soap:Body>]
+    O --> P[FiskalizacijaRequest]
+    P --> Q[Zaglavlje]
+    Q --> R[Racun / PoslovniProstor / itd.]
+    R --> S[SignatureXml s potpisom]
+
+    S --> T[Serializacija SOAP poruke]
+    T --> U[Zavrsetak - SOAP poruka spremna za slanje]
+
+    style A fill:#e1f5e1
+    style U fill:#e1f5e1
+    style F fill:#fff4e1
+    style I fill:#fff4e1
+    style L fill:#fff4e1
+    style P fill:#e1f5ff

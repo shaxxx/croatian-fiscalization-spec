@@ -1,0 +1,45 @@
+# Mermaid diagram for Signature Verification Flow
+# Source: Page 50 of Technical Specification v2.6
+
+flowchart TD
+    A[Primljen potpisani XML dokument] --> B[Ekstrakcija SignatureXml elementa]
+    B --> C[Ucitavanje X.509 certifikata iz potpisa]
+    C --> D[Provjera valjanosti certifikata]
+    D --> E{Certifikat je valjan?}
+    E -->|Ne| F[Greska: Certifikat nije valjan]
+    F --> G[Kraj - potpis je nevaljan]
+
+    E -->|Da| H[Provjera lanca certifikata]
+    H --> I{Lanac certifikata je valjan?}
+    I -->|Ne| J[Greska: Prekinut lanac povjerenja]
+    J --> G
+
+    I -->|Da| K[Provjera isteka certifikata]
+    K --> L{Je li certifikat istekao?}
+    L -->|Da| M[Greska: Certifikat je istekao]
+    M --> G
+
+    L -->|Ne| N[Provjera povratnog popisa certifikata]
+    N --> O{Je li certifikat opozvan?}
+    O -->|Da| P[Greska: Certifikat je opozvan]
+    P --> G
+
+    O -->|Ne| Q[Provjera digitalnog potpisa]
+    Q --> R[Hashiranje XML sadrzaja]
+    R --> S[Uskladba hash-a s potpisom]
+    S --> T{Potpis je ispravan?}
+    T -->|Ne| U[Greska: Potpis ne odgovara sadrzaju]
+    U --> G
+    T -->|Da| V[Provjera vremenskog pecata]
+    V --> W[Vrijeme potpisa je u okviru valjanosti]
+    W --> X[Kraj - potpis je valjan]
+
+    style X fill:#e1f5e1
+    style G fill:#f5e1e1
+    style F fill:#ffe1e1
+    style J fill:#ffe1e1
+    style M fill:#ffe1e1
+    style P fill:#ffe1e1
+    style U fill:#ffe1e1
+    style D fill:#fff4e1
+    style Q fill:#fff4e1

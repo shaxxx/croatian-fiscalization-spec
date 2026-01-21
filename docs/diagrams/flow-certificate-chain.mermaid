@@ -1,0 +1,54 @@
+# Mermaid diagram for Certificate Chain Validation Flow
+# Source: Page 53 of Technical Specification v2.6
+
+flowchart TD
+    A[Pocetak: Provjera lanca certifikata] --> B[Ucitavanje krajnjeg korisnikovog certifikata]
+    B --> C[Pretraga root certifikata]
+    C --> D[Root CA certifikat pronaden]
+    D --> E[Pretraga intermediate certifikata]
+    E --> F{Intermediate certifikat postoji?}
+    F -->|Da| G[Ucitavanje intermediate CA certifikata]
+    G --> H[Formiranje lanca: User -> Intermediate -> Root]
+    F -->|Ne| I[Formiranje lanca: User -> Root]
+
+    H --> J[Provjera potpisa svakog certifikata u lancu]
+    I --> J
+
+    J --> K{Svi potpisi su ispravni?}
+    K -->|Ne| L[Greska: Prekid u lancu povjerenja]
+    L --> M[Kraj - lanac nije valjan]
+
+    K -->|Da| N[Provjera datuma valjanosti za svaki certifikat]
+    N --> O{Svi certifikati su valjani?}
+    O -->|Ne| P[Greska: Jedan ili vise certifikata su istekli]
+    P --> M
+
+    O -->|Da| Q[Provjera povratnog popisa CRL]
+    Q --> R{Je li neki certifikat opozvan?}
+    R -->|Da| S[Greska: Certifikat je opozvan]
+    S --> M
+
+    R -->|Ne| T[Provjera OCSP statusa]
+    T --> U{Je li status Good?}
+    U -->|Ne| V[Greska: Certifikat nije aktivan]
+    V --> M
+
+    U -->|Da| W[Provjera policies provjera]
+    W --> X{Policy je prihvacena?}
+    X -->|Ne| Y[Greska: Policy nije prihvacena]
+    Y --> M
+
+    X -->|Da| Z[Kraj - lanac certifikata je valjan]
+
+    style Z fill:#e1f5e1
+    style M fill:#f5e1e1
+    style L fill:#ffe1e1
+    style P fill:#ffe1e1
+    style S fill:#ffe1e1
+    style V fill:#ffe1e1
+    style Y fill:#ffe1e1
+    style J fill:#fff4e1
+    style N fill:#fff4e1
+    style Q fill:#fff4e1
+    style T fill:#fff4e1
+    style W fill:#fff4e1

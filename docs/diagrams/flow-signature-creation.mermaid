@@ -1,0 +1,29 @@
+# Mermaid diagram for Digital Signature Creation Flow
+# Source: Page 51 of Technical Specification v2.6
+
+flowchart TD
+    A[Pocetak: Potpisivanje XML dokumenta] --> B[Ucitavanje privatnog kljuca iz certifikata]
+    B --> C[Ucitavanje X.509 javnog certifikata]
+    C --> D[Normalizacija XML dokumenta]
+    D --> E[Uklanjanje SignatureXml elementa]
+    E --> F[Kreiranje Canonical XML oblika]
+    F --> G[Hashiranje XML sadrzaja]
+    G --> H[SHA-1 hash izracunat]
+    H --> I[Enkripcija hash-a privatnim kljucem]
+    I --> J[RSA enkripcija]
+    J --> K[Digitalni potpis kreiran]
+    K --> L[Formiranje Signature elementa]
+    L --> M[Dodavanje SignedInfo elementa]
+    M --> N[Dodavanje SignatureValue elementa]
+    N --> O[Dodavanje KeyInfo elementa]
+    O --> P[Dodavanje X509Data elementa]
+    P --> Q[Ugradnja certifikata u potpis]
+    Q --> R[Dodavanje SignatureXml u izvorni dokument]
+    R --> S[Kraj - XML dokument je potpisan]
+
+    style A fill:#e1f5e1
+    style S fill:#e1f5e1
+    style D fill:#fff4e1
+    style G fill:#fff4e1
+    style I fill:#fff4e1
+    style L fill:#fff4e1

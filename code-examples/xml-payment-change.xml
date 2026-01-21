@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primjer zahtjeva za promjenu načina plaćanja -->
+<FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
+  <Zaglavlje>
+    <IdPoslovnogProstora>123</IdPoslovnogProstora>
+    <Oib>12345678901</Oib>
+    <DatumVrijeme>2025-12-08T10:10:00+01:00</DatumVrijeme>
+  </Zaglavlje>
+  <PromjenaNacinaPlacanja>
+    <Oib>12345678901</Oib>
+    <OznakaSlijeda>P</OznakaSlijeda>
+    <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
+    <BrRacuna>1/2025</BrRacuna>
+    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
+    <IznosUkupno>100.00</IznosUkupno>
+    <NaciniPlacanja>
+      <NacinPlacanja>
+        <Naziv>G</Naziv>
+        <Iznos>50.00</Iznos>
+      </NacinPlacanja>
+      <NacinPlacanja>
+        <Naziv>K</Naziv>
+        <Iznos>50.00</Iznos>
+      </NacinPlacanja>
+    </NaciniPlacanja>
+  </PromjenaNacinaPlacanja>
+  <SignatureXml>
+    <!-- Digitalni potpis će biti dodan ovdje -->
+  </SignatureXml>
+</FiskalizacijaRequest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primjer zahtjeva za fiskalizaciju ISSN broja -->
+<FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
+  <Zaglavlje>
+    <IdPoslovnogProstora>123</IdPoslovnogProstora>
+    <Oib>12345678901</Oib>
+    <DatumVrijeme>2025-12-08T10:15:00+01:00</DatumVrijeme>
+  </Zaglavlje>
+  <Racun>
+    <Oib>12345678901</Oib>
+    <OznakaSlijeda>P</OznakaSlijeda>
+    <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
+    <BrRacuna>1/2025</BrRacuna>
+    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
+    <IznosUkupno>100.00</IznosUkupno>
+    <UkupnoPorez>
+      <Porez>
+        <Naziv>PDV</Naziv>
+        <Stopa>25.00</Stopa>
+        <Osnovica>80.00</Osnovica>
+        <Iznos>20.00</Iznos>
+      </Porez>
+    </UkupnoPorez>
+    <ISSN>123456789012345</ISSN>
+  </Racun>
+  <SignatureXml>
+    <!-- Digitalni potpis će biti dodan ovdje -->
+  </SignatureXml>
+</FiskalizacijaRequest>

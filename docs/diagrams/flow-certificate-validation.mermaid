@@ -1,0 +1,47 @@
+# Mermaid diagram for Certificate Validation Flow
+# Source: Page 52 of Technical Specification v2.6
+
+flowchart TD
+    A[Ucitavanje X.509 certifikata] --> B[Provjera formata certifikata]
+    B --> C{Format je ispravan?}
+    C -->|Ne| D[Greska: Neispravan format certifikata]
+    D --> E[Kraj - certifikat nije valjan]
+
+    C -->|Da| F[Ekstrakcija informacija iz certifikata]
+    F --> G[Subject CN / OIB]
+    G --> H[Issuer CN]
+    H --> I[Valid From - Datum pocetka valjanosti]
+    I --> J[Valid To - Datum zavrsetka valjanosti]
+
+    J --> K{Trenutni datum je u rasponu valjanosti?}
+    K -->|Ne| L[Greska: Certifikat nije jos ili vise nije valjan]
+    L --> E
+
+    K -->|Da| M[Provjera OIB-a u certifikatu]
+    M --> N{OIB odgovara certifikatu?}
+    N -->|Ne| O[Greska: OIB se ne poklapa]
+    O --> E
+
+    N -->|Da| P[Provjera izdavatelja certifikata]
+    P --> Q{Je li izdavatelj povjeren?}
+    Q -->|Ne| R[Greska: Nepoznati izdavatelj]
+    R --> E
+
+    Q -->|Da| S[Provjera digitalnog potpisa certifikata]
+    S --> T{Potpis certifikata je ispravan?}
+    T -->|Ne| U[Greska: Potpis certifikata nije ispravan]
+    U --> E
+
+    T -->|Da| V[Kraj - certifikat je valjan]
+
+    style V fill:#e1f5e1
+    style E fill:#f5e1e1
+    style D fill:#ffe1e1
+    style L fill:#ffe1e1
+    style O fill:#ffe1e1
+    style R fill:#ffe1e1
+    style U fill:#ffe1e1
+    style K fill:#fff4e1
+    style N fill:#fff4e1
+    style Q fill:#fff4e1
+    style T fill:#fff4e1

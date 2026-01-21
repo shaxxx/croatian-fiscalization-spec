@@ -1,0 +1,36 @@
+# Mermaid diagram for Registration and Authentication Flow
+# Source: Page 44 of Technical Specification v2.6
+
+flowchart TD
+    A[Pocetak: Registracija korisnika] --> B[Prijavnica u FINA sustav]
+    B --> C{Korisnik postoji?}
+    C -->|Ne| D[Kreiranje novog korisnika]
+    D --> E[Unos OIB-a korisnika]
+    E --> F[Unos podataka o tvrtci]
+    F --> G{Podaci su ispravni?}
+    G -->|Ne| H[Ponovni unos podataka]
+    H --> F
+    G -->|Da| I[Generiranje certifikata]
+    I --> J[Dodjeljivanje certifikata korisniku]
+    J --> K[Spremanje certifikata u Windows store]
+    K --> L[Kraj - uspjesna registracija]
+
+    C -->|Da| M[Ucitavanje postojeceg certifikata]
+    M --> N{Certifikat je valjan?}
+    N -->|Ne| O[Greska: Certifikat je istekao]
+    O --> P[Obnova certifikata]
+    P --> I
+    N -->|Da| Q[Autentikacija u CIS sustav]
+    Q --> R{Autentikacija uspjesna?}
+    R -->|Ne| S[Greska autentikacije]
+    S --> T[Kraj s greskom]
+    R -->|Da| U[Pristup servisima CIS-a]
+    U --> V[Kraj - uspjesna autentikacija]
+
+    style L fill:#e1f5e1
+    style V fill:#e1f5e1
+    style T fill:#f5e1e1
+    style O fill:#f5e1e1
+    style S fill:#f5e1e1
+    style Q fill:#fff4e1
+    style R fill:#fff4e1
