@@ -1,0 +1,88 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tns="http://www.apis-it.hr/fin/2012/types/f73" 
+xmlns:xd="http://www.w3.org/2000/09/xmldsig#"> 
+<soapenv:Header/> 
+<soapenv:Body> 
+<tns:NapojnicaZahtjev Id="napojnicaId"> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>d121c01c-4351-43f7-8424-289290c69950</tns:IdPoruke> 
+<tns:DatumVrijeme>19.07.2023T08:48:13</tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Racun> 
+<tns:Oib>02994650199</tns:Oib> 
+<tns:USustPdv>false</tns:USustPdv> 
+<tns:DatVrijeme>19.07.2023T08:48:03</tns:DatVrijeme> 
+<tns:OznSlijed>P</tns:OznSlijed> 
+<tns:BrRac> 
+<tns:BrOznRac>235138</tns:BrOznRac> 
+<tns:OznPosPr>POSL1</tns:OznPosPr> 
+<tns:OznNapUr>12</tns:OznNapUr> 
+</tns:BrRac> 
+<tns:IznosUkupno>2343.13</tns:IznosUkupno> 
+<tns:NacinPlac>G</tns:NacinPlac> 
+<tns:OibOper>01234567890</tns:OibOper> 
+<tns:ZastKod>a4463353a761769e176b028ccec4382a</tns:ZastKod> 
+<tns:NakDost>false</tns:NakDost> 
+<tns:Napojnica> 
+<tns:iznosNapojnice>2.00</tns:iznosNapojnice> 
+<tns:nacinPlacanjaNapojnice>T</tns:nacinPlacanjaNapojnice> 
+</tns:Napojnica> 
+</tns:Racun> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#napojnicaId"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>UoS3+8OKUFnWzJzfrrg4IRIFyaI=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>bVH3lNhbYf0kVuUdX5m0nHYa9hKj0foWmGZXadXRQrqr/CfgOULSp5TQi0aBRT+Zcc99
+MhbW2w/RJyOiqYFLyPqWgcf07fLdXg9Q0o9daqdhKYNvPtFG4diVcP65euslJCAL873whYxm+a6bwQI/wu1rzl
+weP0fuvg9LsgieUluZ+IfLmfHgkoLIsh6/maNd7Sq/0VZ7xt75fSlr4U6TL4QV2rSGW/1mAsAHMEOjkuwpIt89k
+hLpfA2TtpxRn8du+E3ZdIiI9ImfX0Im5NMbxjll+NNUzZtB04iWuEQWLneA1CnIyXmC0uTW8yspykEKruARFS
+0gpoClIcZwXsvZCg==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIGjzCCBHegAwIBAgIQVMN+ETtXRMMAAAAAXyRDJDANBgkqhkiG9w0BAQsFADBIMQ
+swCQYDVQQGEwJIUjEdMBsGA1UEChMURmluYW5jaWpza2EgYWdlbmNpamExGjAYBgNVBAMTEUZpbmEg
+RGVtbyBDQSAyMDIwMB4XDTIxMTAxOTA4MjY1NloXDTI2MTAxOTA4MjY1NlowWDELMAkGA1UEBhMCSFIx
+JTAjBgNVBAoTHEFQSVMgSVQgRC5PLk8uIEhSMDI5OTQ2NTAxOTkxDzANBgNVBAcTBlpBR1JFQjERMA8GA
+1UEAxMIRklTS0FMIDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCnVrIj9eExiFKXTB/t6eMB
+cb6IqzgmHMrJ6L5r5bUbcg7clP1OTfrOItMyUf2cVAl7B3gjS7rE1Y4LcnApYbx2Mzhfwi/ogmruJpdox32J8LG/1
+GmOW96Q9zJ/BlqLBrOBAmQ1i69QonilnbwQWi+XKqMRAqtNkJud6G4404kWiDgdXT6obZshJQaimG4dVd/
+bBxliGNKPg9nK6ZI2Ng4Vy075ajRe3bq8NseNhlCLB26UL1WShkDNpGYTiN8K8Xyx7JFNpytC3ufS5PhPM8TL
+jJUYARrACC/CxHulWavJd4qVM/8ZYlORhJbBuc1djjpyGsqVgYq5LED51jSCdV8XAgMBAAGjggJjMIICXzAOBg
+NVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMCMIGsBgNVHSAEgaQwgaE
+wgZQGCSt8iFAFIQ8DATCBhjBBBggrBgEFBQcCARY1aHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3BzL2Nwc2
+5xY2RlbW8yMDE0djItMC1oci5wZGYwQQYIKwYBBQUHAgEWNWh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL
+2Nwcy9jcHNucWNkZW1vMjAxNHYyLTAtZW4ucGRmMAgGBgQAj3oBATB9BggrBgEFBQcBAQRxMG8wKAYIK
+wYBBQUHMAGGHGh0dHA6Ly9kZW1vMjAxNC1vY3NwLmZpbmEuaHIwQwYIKwYBBQUHMAKGN2h0dHA6Ly
+9kZW1vLXBraS5maW5hLmhyL2NlcnRpZmlrYXRpL2RlbW8yMDIwX3N1Yl9jYS5jZXIwgbQGA1UdHwSBrDCB
+qTCBpqCBo6CBoIYoaHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3JsL2RlbW8yMDIwLmNybIZ0bGRhcDovL2R
+lbW8tbGRhcC5maW5hLmhyL2NuPUZpbmElMjBEZW1vJTIwQ0ElMjAyMDIwLG89RmluYW5jaWpza2ElMjBhZ
+2VuY2lqYSxjPUhSP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3QlM0JiaW5hcnkwHwYDVR0jBBgwFoAUla9S1cL
+p1zeEPm5Jj8kf6lwrX88wHQYDVR0OBBYEFHbh5aGV7SnN828H+8jZ/1kRMgkmMAkGA1UdEwQCMAAwDQY
+JKoZIhvcNAQELBQADggIBAGZLzwPNAnhYAESsDRLdnZ/7a7uoKLOTh0hNUgqESGOkB8xcuQFHHKLwQlmF
+dv+/2i3WPT4aXg0PNPFIlNLABIlnZEJfhpAsnswCBcZfBMTFqmOUlJkQIghSSVHm7yC2eJBiB9x/PnZQzd2Fte
+HOprT5exd2wvHIhQEtmLDpI+hDNv6zvBxrRcz6aT4v5KfmkP5O4z1jj5y4Ug5Su7TX2KpT/zRNPPPQXsqg+d
+S+6C+FJFG7UFRHEMSvAc2BFDm+T8UXUIXE61jSOj/Dw1g2mSSdJFLNrB8T0hWaj7EX32sEd0KGQJmBsK4
+hMiUmV96ZmJFcJksiuwPcAbXLdvJt8R6T9KuVsxMBKt7QVYFd723o2hiPTCbc/2LrwAIpAIsinlOi238SyNvVqvs
+uRVe8EWKZo+KV9JZ9IQksz/vXNehGt/f4NCfGqZZiWndbp1DewISSLifqlKyGzghC49jwUu03HD86RRFYw6l6
+BNf0s9s2YyppEndTCJWruaX+YYEYxulVBY0E4hohidwWBCGg4wWKWEUYBnHuzaSTEzx6KQUZtRoxuISPGuj
+E6fwb4oSExQ3FcURRszb+kwajXiptZk1kJrbF5GBYeGq74mFRth+pRaoEWWdGzz38Az6GXD+dg9FhqCvj6Z
+5PzH80VoVso9YQVauOWavRdfIgDIxLenNx</X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2020,O=Financijska agencija,C=HR</X509IssuerName> 
+<X509SerialNumber>112670206482201164408252157595450884900</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</tns:NapojnicaZahtjev> 
+</soapenv:Body> 
+</soapenv:Envelope>

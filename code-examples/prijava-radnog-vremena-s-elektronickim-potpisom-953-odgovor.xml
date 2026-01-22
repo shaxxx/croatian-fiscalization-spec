@@ -1,0 +1,83 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+<soapenv:Header/> 
+<soapenv:Body> 
+<fis:PrijaviRadnoVrijemeOdgovor xmlns:fis="http://www.apis-
+it.hr/fin/2012/types/f73" Id="G0x7f4b6bfdd550-5D"> 
+<fis:Zaglavlje> 
+<fis:IdPoruke>c7fbc18e-cce8-470b-b460-b455c7fa3b52</fis:IdPoruke> 
+<fis:DatumVrijeme>08.12.2025T13:17:56</fis:DatumVrijeme> 
+</fis:Zaglavlje> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s114</fis:SifraGreske> 
+<fis:PorukaGreske>U dvokratnom redovnom radnom vremenu, radno vrijeme do prvog 
+dijela dvokratnog radnog vremena ne može biti veće od 23:58.</fis:PorukaGreske> 
+</fis:Greska> 
+<fis:Greska> 
+<fis:SifraGreske>s101</fis:SifraGreske> 
+<fis:PorukaGreske>Oznaka poslovnog prostora ne postoji ili nije verificirana u 
+aplikaciji za prijavu poslovnih prostora.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-
+20010315"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#G0x7f4b6bfdd550-5D"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>G6c6wni4QfZYY0oyWaEFDVbdPBE=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>Zu3IzyHKhLfaMq2M9TjG27JzTf5W1/D7rBedcF/8tILnAfOFtfea2tkMByFsKIP
+IEEFqPnAJTB409dH+Cw3WgOXsW1ZBIySPienRY8FJU826oycm9inqulfT/Lpdhi5VbZgN55IAWtCrFr
+jqPHgM+/uGKNlygmoelF1BSpb7dt/i0aENLZpBQEn6bsdkJEqv3CQ70p+Dx3RTMqOgjrwLwim4YyLo/
+7CYEREHS11PJU/Y4gxCHgtQgsUgGOE2aoVHQsgJTUCi467aJAKCRAV0Rq83i45+KhvMJ303VKfjgXT6
+v0ia8SCZED+vUnsx31weXfQHYimsYZQVXuW6Ecb9iQ==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIGwTCCBKmgAwIBAgIRAPTXc+wJYIoHpsTEzNUWmB0wDQYJKoZIhvcNAQELBQ
+AwSDELMAkGA1UEBhMCSFIxHTAbBgNVBAoTFEZpbmFuY2lqc2thIGFnZW5jaWphMRowGAYDVQQDExFGa
+W5hIERlbW8gQ0EgMjAyMDAeFw0yNDA3MTAwNjA1MzBaFw0yNjA3MTAwNjA1MzBaMGcxCzAJBgNVBAYT
+AkhSMRcwFQYDVQQKEw5BUElTIElUIEQuTy5PLjEWMBQGA1UEYRMNSFIwMjk5NDY1MDE5OTEPMA0GA1U
+EBxMGWkFHUkVCMRYwFAYDVQQDEw1maXNrYWxjaXN0ZXN0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMI
+IBCgKCAQEAppLwkyPYlXsjaOBGJIfbuAUlkQgXWYOiSD0SNeCu92hqXoZsHNAoSPdDQlwaVKd+zf/3+
+O+SxPdA7XpLOpRe0Se00YEM2uinzuigNb/Iwb9nvh9VXn5CvOdTAyqe11wq1pi2t2M9jKRRV8LQSr8O
+OePFPFt9kV2emuB8LKili72gMLis4OMHUmMsWgEweSxbxXA1lHuv81+4wccaz4pKQZheCPh5Bo1HRPF
+fH9EvzhsQz9leT6rZKFLR7x/fDfO/A77CQMskmuoCXkFYk+HwY4YQnwvN1B0bAY6UlZOnqiXel499+2
+fnedQzFgxbkqMrOnknLT2iSt//uRCa7niZIQIDAQABo4IChTCCAoEwDgYDVR0PAQH/BAQDAgWgMB0GA
+1UdJQQWMBQGCCsGAQUFBwMEBggrBgEFBQcDAjCBrAYDVR0gBIGkMIGhMIGUBgkrfIhQBSEPAwIwgYYw
+QQYIKwYBBQUHAgEWNWh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2Nwcy9jcHNucWNkZW1vMjAxNHYyLTA
+taHIucGRmMEEGCCsGAQUFBwIBFjVodHRwOi8vZGVtby1wa2kuZmluYS5oci9jcHMvY3BzbnFjZGVtbz
+IwMTR2Mi0wLWVuLnBkZjAIBgYEAI96AQEwfQYIKwYBBQUHAQEEcTBvMCgGCCsGAQUFBzABhhxodHRwO
+i8vZGVtbzIwMTQtb2NzcC5maW5hLmhyMEMGCCsGAQUFBzAChjdodHRwOi8vZGVtby1wa2kuZmluYS5o
+ci9jZXJ0aWZpa2F0aS9kZW1vMjAyMF9zdWJfY2EuY2VyMCAGA1UdEQQZMBeBFWl2YW4udmlsaWNAYXB
+pcy1pdC5ocjCBtAYDVR0fBIGsMIGpMIGmoIGjoIGghihodHRwOi8vZGVtby1wa2kuZmluYS5oci9jcm
+wvZGVtbzIwMjAuY3JshnRsZGFwOi8vZGVtby1sZGFwLmZpbmEuaHIvY249RmluYSUyMERlbW8lMjBDQ
+SUyMDIwMjAsbz1GaW5hbmNpanNrYSUyMGFnZW5jaWphLGM9SFI/Y2VydGlmaWNhdGVSZXZvY2F0aW9u
+TGlzdCUzQmJpbmFyeTAfBgNVHSMEGDAWgBSVr1LVwunXN4Q+bkmPyR/qXCtfzzAdBgNVHQ4EFgQUZKz
+NSWN7CnhG6g8JcpSxNWwL2ZMwCQYDVR0TBAIwADANBgkqhkiG9w0BAQsFAAOCAgEApOvYwXfjN8Y1rb
+ZWjbzuSLPRpzmQrzq3vf7Rqqt4AkS8ajFP3ONgKNC5Po/zVWx6NgpXRVlqANEAEEM0QB96YkTyLM8kT
+GWu0guvZHwMwO7cKdHJahgybXgOXnZZulYAMvIWs9Ws0eR8rFs2yE1/O3ZaViq6notZcxOlGzPhSdtz
+0Q993rgig+dkmIfO6jm+8bgfqEjV7BFvchy3LknhpXgdYUTF2SRXHYpsXECkQRcHdCdSoQPVlhTX4Sc
+LV+w5G0zs+tKoQahnybg0Ux/n60tK2Lkp28FIDESmdqLwE+0QzjojB1d2OW2LTSbKKqNTvIpETD9D03
+odQ9LbRuUjJzNUzrBKH3c1U1A40Wq0dfXa4e4NqEdWDsLXHwoYyPek58Z6D86pqItudeyfEiE8SUJL7
+wHZ0qXt3ozDDPeKUD9f2es3fsjHkE97VBlToPna+Bg5wLq5/v2AGnvzcDYhjEsVr8VySJMcqZltTQnV
+SK3jYJn2fMChcwnaZdRopcyAz+KpknsC9smF5UMI00bTU32XrQ9PTgi18cWEQjyZDjbtGTUsS8SeOsO
+DrRqQIwWzbydcNYKqja26CjfCFRxlEsbTvTF1YBUzmY6FGxASZVcnhqW0R7W6ieIAxQphhc3tt+Eh4T
+AF4pwniURdd4RK3dtZNDluRZlI+wFV9c1j2Rs=</X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2020, O=Financijska agencija, 
+C=HR</X509IssuerName> 
+<X509SerialNumber>325450325973957308031939306065516468253</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</fis:PrijaviRadnoVrijemeOdgovor> 
+</soapenv:Body> 
+</soapenv:Envelope>

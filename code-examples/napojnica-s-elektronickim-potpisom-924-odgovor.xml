@@ -1,0 +1,76 @@
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> 
+<soap:Body> 
+<tns:NapojnicaOdgovor xmlns:tns="http://www.apis-it.hr/fin/2012/types/f73" Id="G0x7f471a71d100-
+4D" xsi:schemaLocation="http://www.apis-it.hr/fin/2012/types/f73 
+../schema/FiskalizacijaSchema.xsd"> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>d121c01c-4351-43f7-8424-289290c69950</tns:IdPoruke> 
+<tns:DatumVrijeme>19.07.2023T08:48:14</tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:PorukaOdgovora> 
+<tns:SifraPoruke>p002</tns:SifraPoruke> 
+<tns:Poruka>Uspješna dostava podataka o napojnici.</tns:Poruka> 
+</tns:PorukaOdgovora> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#G0x7f471a71d100-4D"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>7lDBHYDfbhfa2wJLYuRBwlx5Lno=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>lkZHF5hBlIL/wsJCLOAD9ffLMJM/VrTIlHEaskX+VtYNDoG5SSu5f+g1j5dJ7wDZxpbsQIZo
+VnLdc5ibkP9AJDsfzSrL9ylnYzZnBBrTDV6sI0bZY71rMRTDvmGm7v1L6mA3KXpRpFkIhze4IVxym49KAsVBs
+QyjLFTK3wBX+0E+QeHvA7z2njXb7zTAIZ/LP0ND2AC/A6RN/psLMURRIz0FCWUdeuZfCPKVetRS1ldFoUN+
+BpPy6NsY8WSbIG7D7lFWEsIK79guu7Lb9EcoeXrPwSgXFVmXsESIM1LBolQe3aj7bH7s1INjY9ev+fHEJUfGs
+MGOdKr4is41RDUmEw==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIHKDCCBRCgAwIBAgIQHQpo58vNOMYAAAAAXaV/3zANBgkqhkiG9w0BAQsFADBIMQ
+swCQYDVQQGEwJIUjEdMBsGA1UEChMURmluYW5jaWpza2EgYWdlbmNpamExGjAYBgNVBAMTEUZpbmEg
+RGVtbyBDQSAyMDE0MB4XDTIwMDMxMDE4NTgzNFoXDTI0MDMyNTA1MTU0N1owZjELMAkGA1UEBhMCSF
+IxFzAVBgNVBAoTDkFQSVMgSVQgRC5PLk8uMRYwFAYDVQRhEw1IUjAyOTk0NjUwMTk5MQ8wDQYDVQQHE
+wZaQUdSRUIxFTATBgNVBAMTDGFwaXMgaXQgdGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQo
+CggEBAMFK3VhiG+9xfwMd/K5LPUj7DocVlayigG2187EYlssi3XyuCUOErxvsNBhfdfSAeVUf3/RQ/gxPwUzaKs
+HXywoN6y/fQ9krag7EnD1jKKeq/R6oHDLasiNjLlNFPTuDyE0V84Ji7yGJyowjW/KhPDtpkYC2Pu8FrmACFCItF
+08cbBM6ngW2t2cpTUomwePt2jzbGnULSihrrQh5/7WJQGbsCdbYAq47xeHKLpQAupgFACUYWYsYR5DbRiK
+WnzfQECy2OAImnmHzY64yWLlcRLUxZy2JLUElbmC9NqEzxMUVW1z7xLRyVuRJlk2f55lNbS8PVnnsWeasR2
+I3TZebuzUCAwEAAaOCAu4wggLqMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKw
+YBBQUHAwIwgawGA1UdIASBpDCBoTCBlAYJK3yIUAUgDwMBMIGGMEEGCCsGAQUFBwIBFjVodHRwOi8vZ
+GVtby1wa2kuZmluYS5oci9jcHMvY3BzbnFjZGVtbzIwMTR2Mi0wLWhyLnBkZjBBBggrBgEFBQcCARY1aHR0c
+DovL2RlbW8tcGtpLmZpbmEuaHIvY3BzL2Nwc25xY2RlbW8yMDE0djItMC1lbi5wZGYwCAYGBACPegEBMH0
+GCCsGAQUFBwEBBHEwbzAoBggrBgEFBQcwAYYcaHR0cDovL2RlbW8yMDE0LW9jc3AuZmluYS5ocjBDBggrB
+gEFBQcwAoY3aHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY2VydGlmaWthdGkvZGVtbzIwMTRfc3ViX2NhLmNl
+cjAkBgNVHREEHTAbgRl0b21pc2xhdi5rb3JlbkBhcGlzLWl0LmhyMIIBGAYDVR0fBIIBDzCCAQswgaaggaOgga
+CGKGh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2NybC9kZW1vMjAxNC5jcmyGdGxkYXA6Ly9kZW1vLWxkY
+XAuZmluYS5oci9jbj1GaW5hJTIwRGVtbyUyMENBJTIwMjAxNCxvPUZpbmFuY2lqc2thJTIwYWdlbmNpamEsY
+z1IUj9jZXJ0aWZpY2F0ZVJldm9jYXRpb25MaXN0JTNCYmluYXJ5MGCgXqBcpFowWDELMAkGA1UEBhMCSFI
+xHTAbBgNVBAoTFEZpbmFuY2lqc2thIGFnZW5jaWphMRowGAYDVQQDExFGaW5hIERlbW8gQ0EgMjAxNDE
+OMAwGA1UEAxMFQ1JMMTcwHwYDVR0jBBgwFoAUO4RaFPXFPOFIO13RJzV71WW8DiowHQYDVR0OBBYEF
+KdqhJ0FMokMPFYvAMoDTcXls/aiMAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggIBAExT2Td0xGsuRwf
+bRzj125BXeklOfyLFySMWgwejnh2m5zR4NvD9nwIqoKfoXIvWjRqIs3b5YV9IqUGeMcYDqGl/+jsGz6tibf+WV
+pEaCYiFgV5rq3aG2Pp2k/63MdZiOtnjt8/wA6R3/ntOLN9fQgTu7qwJE2TdteuOEF+fpjcZpnwjqUa3YzIVZUgL
+K4T7SbIPkSAo5pe4wKcRsHFRuGPv9mvFb43S9L82VT5jyPyc4rCpgCZzzJV392zkgyauJz6AyVSnnIyk1/nspa
+a135cKNdYwNU4G9uSGxvsIjEXLikUStn7WDDXZTp3rvsz6Uwyq9h8l6GtaGuJVi4yF4adQwprGbvwYTvgIvqe
+6VJgvFCxJN4WgEX2Me9HYoJV99NnP4mTkeqUCKwxsmqVzPaGHTGiiHjePPP8Uu/ENyfptkxOKP3bmmZyCT
+nmOXCCymaaWubYMXd46MCffeeblecbchKL+aJ4eFGtcf97Cv3xKRIYYBIE2aUvicZeWaYIqlX2lfFvKVTewMXz
+WGrOik4izUpN4yoX4Z1TYghUZFzpFX6KgEn7L/EszOskSK7ZY2nyYnh8j+UZJ6GuX/4kZ+YYrmyiRqw5z/PMf
+B37Je0rc6qEbMlv9cEKk9RRL9KY9HGypghY9Tzji4oW5Eu0rg/HBSwHd0rA/8Ho7VsAcCzaF</X509Certificat
+e> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2014, O=Financijska agencija, C=HR</X509IssuerName> 
+<X509SerialNumber>38601662581725784051014199562348101599</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</tns:NapojnicaOdgovor> 
+</soap:Body> 
+</soap:Envelope>

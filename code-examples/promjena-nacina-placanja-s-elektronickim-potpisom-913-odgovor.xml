@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<soap:Envelope  xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+<soap:Body> 
+<tns:PromijeniNacPlacOdgovor  xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " xsi:schemaLocation ="http://www.apis-
+it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd "> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>261d82bf-3628-45ef-85c4-8d679d48785d </tns:IdPoruke> 
+<tns:DatumVrijeme>25.11.2021T13:44:58 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Greske> 
+<tns:Greska> 
+<tns:SifraGreske>s007</tns:SifraGreske> 
+<tns:PorukaGreske>Datum izdavanja računa u poruci promjene načina plaćanja nije jednak 
+trenutnom datumu. </tns:PorukaGreske> 
+</tns:Greska> 
+</tns:Greske> 
+</tns:PromijeniNacPlacOdgovor> 
+</soap:Body> 
+</soap:Envelope>

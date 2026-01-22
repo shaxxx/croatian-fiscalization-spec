@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<soapenv:Envelope  xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 " 
+xmlns:soapenv ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+<soapenv:Header /> 
+<soapenv:Body> 
+<tns:PromijeniNacPlacZahtjev> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>84bed434-d2bd-41a6-871f-1717580d21bb </tns:IdPoruke> 
+<tns:DatumVrijeme>25.11.2021T11:47:20 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Racun> 
+<tns:Oib>02994650199 </tns:Oib> 
+<tns:USustPdv>true</tns:USustPdv> 
+<tns:DatVrijeme>25.11.2021T11:41:11 </tns:DatVrijeme> 
+<tns:OznSlijed>P</tns:OznSlijed> 
+<tns:BrRac> 
+<tns:BrOznRac>031408 </tns:BrOznRac> 
+<tns:OznPosPr>POSL1</tns:OznPosPr> 
+<tns:OznNapUr>12</tns:OznNapUr> 
+</tns:BrRac> 
+<tns:Pdv> 
+<tns:Porez> 
+<tns:Stopa>5.00</tns:Stopa> 
+<tns:Osnovica>3093.22 </tns:Osnovica> 
+<tns:Iznos>154.66 </tns:Iznos> 
+</tns:Porez> 
+</tns:Pdv> 
+<tns:Pnp> 
+<tns:Porez> 
+<tns:Stopa>2.00</tns:Stopa> 
+<tns:Osnovica>32.21</tns:Osnovica> 
+<tns:Iznos>0.64</tns:Iznos> 
+</tns:Porez> 
+</tns:Pnp> 
+<tns:IznosUkupno>3248.52 </tns:IznosUkupno> 
+<tns:NacinPlac>G</tns:NacinPlac> 
+<tns:OibOper>01234567890 </tns:OibOper> 
+<tns:ZastKod>fa603fb2a352aa6f8c85ea1d1f21021c </tns:ZastKod> 
+<tns:NakDost>false</tns:NakDost> 
+<tns:PromijenjeniNacinPlac>K</tns:PromijenjeniNacinPlac> 
+</tns:Racun> 
+</tns:PromijeniNacPlacZahtjev> 
+</soapenv:Body> 
+</soapenv:Envelope>

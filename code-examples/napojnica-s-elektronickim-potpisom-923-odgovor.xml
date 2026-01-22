@@ -1,0 +1,17 @@
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> 
+<soap:Body> 
+<tns:NapojnicaOdgovor xmlns:tns="http://www.apis-it.hr/fin/2012/types/f73" 
+xsi:schemaLocation="http://www.apis-it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd"> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>d121c01c-4351-43f7-8424-289290c69950</tns:IdPoruke> 
+<tns:DatumVrijeme>19.07.2023T08:48:14</tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:PorukaOdgovora> 
+<tns:SifraPoruke>p002</tns:SifraPoruke> 
+<tns:Poruka>Uspješna dostava podataka o napojnici.</tns:Poruka> 
+</tns:PorukaOdgovora> 
+</tns:NapojnicaOdgovor> 
+</soap:Body> 
+</soap:Envelope>

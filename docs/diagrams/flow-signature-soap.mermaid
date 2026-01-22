@@ -19,7 +19,8 @@ flowchart TD
     L --> M[<soap:Envelope>]
     M --> N[<soap:Header>]
     N --> O[<soap:Body>]
-    O --> P[FiskalizacijaRequest]
+    %% Note: FiskalizacijaRequest is an abstract placeholder - actual XML uses specific types like RacunZahtjev, PromijeniNacPlacZahtjev, etc.
+    O --> P[FiskalizacijaRequest<br/>_abstract placeholder_]
     P --> Q[Zaglavlje]
     Q --> R[Racun / PoslovniProstor / itd.]
     R --> S[SignatureXml s potpisom]

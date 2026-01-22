@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Primjer deklaracije namespace-ova u XML zaglavlju -->
-<FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xsi:schemaLocation="http://fiskalizacija.porezna.uprava.hr/2013/schema FiskalizacijaSchema.xsd">
-</FiskalizacijaRequest>

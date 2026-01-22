@@ -1,0 +1,121 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:f73="http://www.apis-
+it.hr/fin/2012/types/f73" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"> 
+<soapenv:Header/> 
+<soapenv:Body> 
+<f73:PrijaviRadnoVrijemeZahtjev Id="racunId"> 
+<f73:Zaglavlje> 
+<f73:IdPoruke>c7fbc18e-cce8-470b-b460-b455c7fa3b52</f73:IdPoruke> 
+<f73:DatumVrijeme>08.12.2025T13:17:56</f73:DatumVrijeme> 
+</f73:Zaglavlje> 
+<f73:PoslovniProstor> 
+<f73:Oib>02994650199</f73:Oib> 
+<f73:OznPosPr>0306</f73:OznPosPr> 
+<f73:RadnoVrijeme> 
+<f73:Redovno> 
+<f73:DatumOd>15.12.2025</f73:DatumOd> 
+<f73:Napomena>TESTNA PORUKA ZA PORUKU: 'U dvokratnom redovnom radnom vremenu, 
+radno vrijeme do prvog dijela dvokratnog radnog vremena ne može biti veće od 
+23:59.'</f73:Napomena> 
+<f73:Dvokratno> 
+<f73:DanUTjednu>1</f73:DanUTjednu> 
+<f73:DioDvokratnog>1</f73:DioDvokratnog> 
+<f73:RadnoVrijemeOd>10:00</f73:RadnoVrijemeOd> 
+<f73:RadnoVrijemeDo>14:00</f73:RadnoVrijemeDo> 
+</f73:Dvokratno> 
+<f73:Dvokratno> 
+<f73:DanUTjednu>1</f73:DanUTjednu> 
+<f73:DioDvokratnog>2</f73:DioDvokratnog> 
+<f73:RadnoVrijemeOd>14:01</f73:RadnoVrijemeOd> 
+<f73:RadnoVrijemeDo>20:00</f73:RadnoVrijemeDo> 
+</f73:Dvokratno> 
+<f73:Dvokratno> 
+<f73:DanUTjednu>2</f73:DanUTjednu> 
+<f73:DioDvokratnog>1</f73:DioDvokratnog> 
+<f73:RadnoVrijemeOd>10:00</f73:RadnoVrijemeOd> 
+<f73:RadnoVrijemeDo>14:00</f73:RadnoVrijemeDo> 
+</f73:Dvokratno> 
+<f73:Dvokratno> 
+<f73:DanUTjednu>2</f73:DanUTjednu> 
+<f73:DioDvokratnog>2</f73:DioDvokratnog> 
+<f73:RadnoVrijemeOd>20:00</f73:RadnoVrijemeOd> 
+<f73:RadnoVrijemeDo>21:00</f73:RadnoVrijemeDo> 
+</f73:Dvokratno> 
+<f73:Dvokratno> 
+<f73:DanUTjednu>3</f73:DanUTjednu> 
+<f73:DioDvokratnog>1</f73:DioDvokratnog> 
+<f73:RadnoVrijemeOd>22:00</f73:RadnoVrijemeOd> 
+<f73:RadnoVrijemeDo>23:59</f73:RadnoVrijemeDo> 
+</f73:Dvokratno> 
+<f73:Dvokratno> 
+<f73:DanUTjednu>3</f73:DanUTjednu> 
+<f73:DioDvokratnog>2</f73:DioDvokratnog> 
+<f73:RadnoVrijemeOd>24:00</f73:RadnoVrijemeOd> 
+<f73:RadnoVrijemeDo>08:00</f73:RadnoVrijemeDo> 
+</f73:Dvokratno> 
+</f73:Redovno> 
+</f73:RadnoVrijeme> 
+</f73:PoslovniProstor> 
+<f73:OibOper>73419685003</f73:OibOper> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#racunId"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>8nh7q6pvrf03lrv+NkZjx2q9Ee4=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>WPrgtgwxCl2r/YvvH5vX1hLbJPuiyhzCP63qeCHBXlfY46vGU696/jMNdEymG5M
+tFHwoTIhYW39X 
+QZ7cGSb4XoiBt1t/Tqsc6njjTISTRZ4AafyDYOlK2Uy9St/zbGrZVWfz5Cz1l2wIKeymKedbZXuT 
+Ed9lafRZ68IiGtoay6Jin0qFEfnco2kLoMGfLlIiEuf0O4AJU0O2VxuwOl3ShYEPwn8werk9Vp1B 
+T79/J0jEpHze9A4qkz+Zh3c9tPPG1mR9AhF64qFFZNwbPBvWE5TAUb7MwqCUfmAnCTf76wcxA+f+ 
+Xo13dFThOWRHzMhk5pWdFaYmiGJ+CQnVjoaVkw==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIGjzCCBHegAwIBAgIQVMN+ETtXRMMAAAAAXyRDJDANBgkqhkiG9w0BAQsFAD
+BIMQswCQYDVQQG 
+EwJIUjEdMBsGA1UEChMURmluYW5jaWpza2EgYWdlbmNpamExGjAYBgNVBAMTEUZpbmEgRGVtbyBD 
+QSAyMDIwMB4XDTIxMTAxOTA4MjY1NloXDTI2MTAxOTA4MjY1NlowWDELMAkGA1UEBhMCSFIxJTAj 
+BgNVBAoTHEFQSVMgSVQgRC5PLk8uIEhSMDI5OTQ2NTAxOTkxDzANBgNVBAcTBlpBR1JFQjERMA8G 
+A1UEAxMIRklTS0FMIDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCnVrIj9eExiFKX 
+TB/t6eMBcb6IqzgmHMrJ6L5r5bUbcg7clP1OTfrOItMyUf2cVAl7B3gjS7rE1Y4LcnApYbx2Mzhf 
+wi/ogmruJpdox32J8LG/1GmOW96Q9zJ/BlqLBrOBAmQ1i69QonilnbwQWi+XKqMRAqtNkJud6G44 
+04kWiDgdXT6obZshJQaimG4dVd/bBxliGNKPg9nK6ZI2Ng4Vy075ajRe3bq8NseNhlCLB26UL1WS 
+hkDNpGYTiN8K8Xyx7JFNpytC3ufS5PhPM8TLjJUYARrACC/CxHulWavJd4qVM/8ZYlORhJbBuc1d 
+jjpyGsqVgYq5LED51jSCdV8XAgMBAAGjggJjMIICXzAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw 
+FAYIKwYBBQUHAwQGCCsGAQUFBwMCMIGsBgNVHSAEgaQwgaEwgZQGCSt8iFAFIQ8DATCBhjBBBggr 
+BgEFBQcCARY1aHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3BzL2Nwc25xY2RlbW8yMDE0djItMC1o 
+ci5wZGYwQQYIKwYBBQUHAgEWNWh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2Nwcy9jcHNucWNkZW1v 
+MjAxNHYyLTAtZW4ucGRmMAgGBgQAj3oBATB9BggrBgEFBQcBAQRxMG8wKAYIKwYBBQUHMAGGHGh0 
+dHA6Ly9kZW1vMjAxNC1vY3NwLmZpbmEuaHIwQwYIKwYBBQUHMAKGN2h0dHA6Ly9kZW1vLXBraS5m 
+aW5hLmhyL2NlcnRpZmlrYXRpL2RlbW8yMDIwX3N1Yl9jYS5jZXIwgbQGA1UdHwSBrDCBqTCBpqCB 
+o6CBoIYoaHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3JsL2RlbW8yMDIwLmNybIZ0bGRhcDovL2Rl 
+bW8tbGRhcC5maW5hLmhyL2NuPUZpbmElMjBEZW1vJTIwQ0ElMjAyMDIwLG89RmluYW5jaWpza2El 
+MjBhZ2VuY2lqYSxjPUhSP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3QlM0JiaW5hcnkwHwYDVR0j 
+BBgwFoAUla9S1cLp1zeEPm5Jj8kf6lwrX88wHQYDVR0OBBYEFHbh5aGV7SnN828H+8jZ/1kRMgkm 
+MAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggIBAGZLzwPNAnhYAESsDRLdnZ/7a7uoKLOTh0hN 
+UgqESGOkB8xcuQFHHKLwQlmFdv+/2i3WPT4aXg0PNPFIlNLABIlnZEJfhpAsnswCBcZfBMTFqmOU 
+lJkQIghSSVHm7yC2eJBiB9x/PnZQzd2FteHOprT5exd2wvHIhQEtmLDpI+hDNv6zvBxrRcz6aT4v 
+5KfmkP5O4z1jj5y4Ug5Su7TX2KpT/zRNPPPQXsqg+dS+6C+FJFG7UFRHEMSvAc2BFDm+T8UXUIXE 
+61jSOj/Dw1g2mSSdJFLNrB8T0hWaj7EX32sEd0KGQJmBsK4hMiUmV96ZmJFcJksiuwPcAbXLdvJt 
+8R6T9KuVsxMBKt7QVYFd723o2hiPTCbc/2LrwAIpAIsinlOi238SyNvVqvsuRVe8EWKZo+KV9JZ9 
+IQksz/vXNehGt/f4NCfGqZZiWndbp1DewISSLifqlKyGzghC49jwUu03HD86RRFYw6l6BNf0s9s2 
+YyppEndTCJWruaX+YYEYxulVBY0E4hohidwWBCGg4wWKWEUYBnHuzaSTEzx6KQUZtRoxuISPGujE 
+6fwb4oSExQ3FcURRszb+kwajXiptZk1kJrbF5GBYeGq74mFRth+pRaoEWWdGzz38Az6GXD+dg9Fh 
+qCvj6Z5PzH80VoVso9YQVauOWavRdfIgDIxLenNx</X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2020,O=Financijska 
+agencija,C=HR</X509IssuerName> 
+<X509SerialNumber>112670206482201164408252157595450884900</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</f73:PrijaviRadnoVrijemeZahtjev> 
+</soapenv:Body> 
+</soapenv:Envelope>

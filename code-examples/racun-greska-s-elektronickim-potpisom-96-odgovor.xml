@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "  
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance "><soap:Body> 
+<tns:RacunOdgovor  Id="G0xc3d48080-4D "  
+xsi:schemaLocation ="http://www.apis-it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd " 
+xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 "><tns:Zaglavlje> 
+<tns:IdPoruke>733362f3-063f-11e2-892e-
+080b300c9a66 </tns:IdPoruke><tns:DatumVrijeme>23.10.2012T13:22:34 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Greske> 
+<tns:Greska> 
+<tns:SifraGreske>s001</tns:SifraGreske> 
+<tns:PorukaGreske> 
+Poruka nije u skladu s XML shemom :  cvc-simple-type 1: element 
+{http://www.apis-it.hr/fin/2012/types/f73}IznosUkupno value '7000000008000990.99' is 
+not a valid instance of type {http://www.apis-
+it.hr/fin/2012/types/f73}IznosType </tns:PorukaGreske> 
+</tns:Greska> 
+</tns:Greske> 
+<Signature  xmlns="http://www.w3.org/2000/09/xmldsig# "><SignedInfo> 
+<CanonicalizationMethod  Algorithm ="http://www.w3.org/TR/2001/REC-xml-c14n-
+20010315 "/> 
+<SignatureMethod  Algorithm ="http://www.w3.org/2000/09/xmldsig#rsa-
+sha1"/><Reference  URI="#G0xc3d48080-4D "><Transforms> 
+<Transform  Algorithm ="http://www.w3.org/2000/09/xmldsig#enveloped-
+signature "/> 
+<Transform  Algorithm ="http://www.w3.org/TR/2001/REC-xml-c14n-
+20010315 "/></Transforms> 
+<DigestMethod  Algorithm ="http://www.w3.org/2000/09/xmldsig#sha1 "/> 
+<DigestValue>USfG3sQElropBabTSMfC+z+2QQs= </DigestValue></Reference> 
+</SignedInfo> 
+<SignatureValue>OJnC52ayKIHRehSLYOvlJ273u/dR5qqG/4L2WVaAMylJexQ0fDJFyQpAovQqqCMxIjLT4b0
+pj4OQis93LI4a/v5+2b+taOcM//0kyloIJkm9wldC+zyo9AqrB3YdPdSiHPWTY7jGtNKYPRg/5SEvYIGDFQCsD
+5CLa4eJHDp6hl+DN6gnDlCC5q84YTO8Xxa3vaIkt+3mSl6DaDhbmY0Dq41+MTzie8bdRmTf+Ar8FqiBst82+
+2TGdVdWrtjtL2IwATR669022Pd9aAJe9W8UZoDpBng6JVSsNH+WViQb1lBNoKfxyESgeLY0fC97f726UlY5J+
+H8lSedcYEnWb5HDw== </SignatureValue><KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIExDCCA6ygAwIBAgIEPssQcTANBgkqhkiG9w0BAQUFADArMQswCQYDVQQGEwJIUjE
+NMAsGA1UEChMERklOQTENMAsGA1UECxMEREVNTzAeFw0xMjA5MjYwODExNDlaFw0xNDA5MjYwODQxND
+laMHgxCzAJBgNVBAYTAkhSMQ0wCwYDVQQKEwRGSU5BMQ0wCwYDVQQLEwRERU1PMREwDwYDVQQLEw
+hQb3Nsb3ZuaTEgMB4GA1UECxMXQVBJUyBJVCBELk8uTy4gODA1NDEzNzIxFjAUBgNVBAMTDWZpc2thbG
+Npc3Rlc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC81TtKtJ84emCS/HK7gSovjNdluZWB
+0DbIMq3cBFpOpmurcbDCJ1Z17XiPLa+UWYIqyAjHQyDnG/H4c5EeGoli9swz5QcZFBmyXTpSd3GuMROgUA
+d4bcvbw1/HDONE5cE8PL11GIy8gi5ANZkujalYmx+1ImnhHxx1Bh2UJ/bcl2eXPtieBQBwtClATSzseB5FFz8Lc
+SyfzM7h39PsAIZ0p8YzH7W+307gvgrJHYb/n4ADwlxieHqb5j74DVD0rUPcUE5d0nSZ7hfEkW8xICgs1Ly6Vu
+3w7Z5M8vb4QmoPnlT1EaHCXiweuK6vjkUk8RQmYY4lTFBs8zHiG7h4n9bPAgMBAAGjggGhMIIBnTAOBgNV
+HQ8BAf8EBAMCBaAwQgYDVR0gBDswOTA3BgkrfIhQBR8FBAIwKjAoBggrBgEFBQcCARYcaHR0cDovL2RlbW
+8tcGtpLmZpbmEuaHIvY3BzLzCBzgYDVR0fBIHGMIHDMEKgQKA+pDwwOjELMAkGA1UEBhMCSFIxDTALBg
+NVBAoTBEZJTkExDTALBgNVBAsTBERFTU8xDTALBgNVBAMTBENSTDcwfaB7oHmGT2xkYXA6Ly9kZW1vLW
+xkYXAuZmluYS5oci9vdT1ERU1PLG89RklOQSxjPUhSP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3QlM0JiaW5h
+cnmGJmh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2NybC9kZW1vY2EuY3JsMCsGA1UdEAQkMCKADzIwMTI
+wOTI2MDgxMTQ5WoEPMjAxNDA5MjYwODQxNDlaMB8GA1UdIwQYMBaAFHpgI45InTJrpOUt3bhZtJT8QmK
+eMB0GA1UdDgQWBBRgIJsZevSn6kDuSzChmaa9Sqr6sjAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBBQUAA4I
+BAQCo5kJWaNjgS+UG7XQHsHersDFk4K5W/Y2Pbubary0j3IwJrveHbUR3HOb0KiVenF6+1FL3sCI/2tfH3wS
+szWL8Gkit8jUudTo5vDyLqEUXYDHlFUBwseudsPkUxPiQ6HuuFd3PiUAWf00chXD38eTjfapNu6VeQt4EORSO
++rEXdhWihVb5HxFIVPTkqHmq1KINwtV9+thwE3hNMwacRa4gwTB1O+jadVlJQMq+kgwnLGLBcwr0W+x1y
+e6MPSYEUxSNFGHPG/evP9DRLwJtR3ngvlCDusnO+A75Nn40VYcoIjw6EN1V+plK+HkLye0zzLsnHIWTSGfZ
+2sQVG5xCURiI </X509Certificate><X509IssuerSerial> 
+<X509IssuerName>OU=DEMO, O=FINA, 
+C=HR</X509IssuerName><X509SerialNumber>1053495409 </X509SerialNumber> 
+</X509IssuerSerial></X509Data> 
+</KeyInfo> 
+</Signature> 
+</tns:RacunOdgovor> 
+</soap:Body> 
+</soap:Envelope>

@@ -58,6 +58,9 @@ FINA issues:
 - **Private key** (.pfx or .p12 file with password)
 - Certificate contains taxpayer's OIB in Subject field
 
+**Certificate Authority Resources:**
+- **FINA DEMO Certificate Authority:** `https://www.fina.hr/finadigicert` (for testing)
+
 ### Authentication Flow
 
 ```mermaid
@@ -362,6 +365,18 @@ Python:
 from OpenSSL import crypto
 cert = crypto.load_certificate(crypto.FILETYPE_PEM, open('cert.pem').read())
 ```
+
+---
+
+## Support and Contact
+
+### Technical Support
+
+For fiscalization-related issues and questions:
+- **Email:** `fiskalizacija.help@apis-it.hr`
+- **Pišite nam Service:** `https://pisitenam.porezna-uprava.hr/`
+
+The "Pišite nam" (Write to us) service provides direct communication with the fiscalization support team for technical assistance, implementation questions, and issue resolution.
 
 ---
 

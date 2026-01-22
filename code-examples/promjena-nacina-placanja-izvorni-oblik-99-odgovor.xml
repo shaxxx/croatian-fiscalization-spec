@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " xmlns:xsi ="http://www.w3.org/2001/XMLSchema-
+instance "> 
+<soap:Body> 
+<tns:PromijeniNacPlacOdgovor  xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 " 
+xsi:schemaLocation ="http://www.apis-it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd "> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>84bed434-d2bd-41a6-871f-1717580d21bb </tns:IdPoruke> 
+<tns:DatumVrijeme>25.11.2021T11:47:20 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:PorukaOdgovora> 
+<tns:SifraPoruke>P001</tns:SifraPoruke> 
+<tns:Poruka>Uspješna prijava promjene načina plaćanja. </tns:Poruka> 
+</tns:PorukaOdgovora> 
+</tns:PromijeniNacPlacOdgovor> 
+</soap:Body> 
+</soap:Envelope>

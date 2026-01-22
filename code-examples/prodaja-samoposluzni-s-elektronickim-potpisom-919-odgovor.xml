@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">  
+<soap:Body> 
+<tns:RacunOdgovor  xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 " 
+xsi:schemaLocation ="http://www.apis-it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd " 
+Id="G0x7f98102258f8-4D "> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>1075cff7-d2c7-3b8c-a1b0-c91c21e3812a </tns:IdPoruke> 
+<tns:DatumVrijeme>24.01.2020T16:02:01 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Greske> 
+<tns:Greska> 
+<tns:SifraGreske>s001</tns:SifraGreske> 
+<tns:PorukaGreske> 
+Poruka nije u skladu s XML shemom :  cvc-simple-type 1: element 
+{http://www.apis-it.hr/fin/2012/types/f73}IznosUkupno value '8550000008123456.01' is 
+not a valid instance of type {http://www.apis-
+it.hr/fin/2012/types/f73}IznosType </tns:PorukaGreske> 
+</tns:Greska> 
+</tns:Greske> 
+</tns:RacunOdgovor> 
+</soap:Body> 
+</soap:Envelope>

@@ -1,0 +1,121 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://www.apis-
+it.hr/fin/2012/types/f73" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"> 
+<soapenv:Header/> 
+<soapenv:Body> 
+<tns:PromijeniPodatkeRacunaZahtjev Id="racunPromId"> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>98caf6c2-375c-45ae-b956-7f38388d455d</tns:IdPoruke> 
+<tns:DatumVrijeme>04.12.2025T16:35:20</tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Racun> 
+<tns:Oib>02994650199</tns:Oib> 
+<tns:USustPdv>true</tns:USustPdv> 
+<tns:DatVrijeme>04.12.2025T16:33:26</tns:DatVrijeme> 
+<tns:OznSlijed>P</tns:OznSlijed> 
+<tns:BrRac> 
+<tns:BrOznRac>801399</tns:BrOznRac> 
+<tns:OznPosPr>POSL1</tns:OznPosPr> 
+<tns:OznNapUr>12</tns:OznNapUr> 
+</tns:BrRac> 
+<tns:Pdv> 
+<tns:Porez> 
+<tns:Stopa>25.00</tns:Stopa> 
+<tns:Osnovica>794.09</tns:Osnovica> 
+<tns:Iznos>198.52</tns:Iznos> 
+</tns:Porez> 
+<tns:Porez> 
+<tns:Stopa>13.00</tns:Stopa> 
+<tns:Osnovica>463.72</tns:Osnovica> 
+<tns:Iznos>60.28</tns:Iznos> 
+</tns:Porez> 
+<tns:Porez> 
+<tns:Stopa>5.00</tns:Stopa> 
+<tns:Osnovica>86.26</tns:Osnovica> 
+<tns:Iznos>4.31</tns:Iznos> 
+</tns:Porez> 
+<tns:Porez> 
+<tns:Stopa>0.00</tns:Stopa> 
+<tns:Osnovica>0.68</tns:Osnovica> 
+<tns:Iznos>0.00</tns:Iznos> 
+</tns:Porez> 
+</tns:Pdv> 
+<tns:Pnp> 
+<tns:Porez> 
+<tns:Stopa>2.00</tns:Stopa> 
+<tns:Osnovica>287.90</tns:Osnovica> 
+<tns:Iznos>5.76</tns:Iznos> 
+</tns:Porez> 
+</tns:Pnp> 
+<tns:IznosUkupno>1613.62</tns:IznosUkupno> 
+<tns:NacinPlac>G</tns:NacinPlac> 
+<tns:OibOper>92694689848</tns:OibOper> 
+<tns:ZastKod>0007d4b4774a1c10795cc66835d26daf</tns:ZastKod> 
+<tns:NakDost>false</tns:NakDost> 
+<tns:OibPrimateljaRacuna>71935664003</tns:OibPrimateljaRacuna> 
+<tns:PromijenjeniNacinPlac>G</tns:PromijenjeniNacinPlac> 
+<tns:PromijenjeniOibPrimateljaRacuna>71935664003</tns:PromijenjeniOibPrimatelja
+Racuna> 
+</tns:Racun> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#racunPromId"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>cUoJAYDXsqKzsJtsP03qD1OrPws=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>mhZZk/LMM64x9hMc/qGhopVExMhUVAeOcF+K8Dx3H1lTbzAwcf3TIyg4i/+lgA+
+Ue+ScfVaoRm5O 
+FHPG5F+hk7bAxB3xm00ugBoNAP6zV01G0P9YFitrhhsteHwlQcp7UcteNhgbRRpumh8qZPF4yCrO 
+Q8OvIec4rL0ZZcM15qjufTZh560xgskl5yr5t8eSQK4ZM9xQaL/0HPSojpyHsaOZqSWj16e+u8u+ 
+bQbPB+mFmXYCcNoeDmpLAJf0tJRy4v6DuB4YJ5RWBfuq4fIJfvvs+uGevsK7EpCZJM6s9tMJb7dc 
+Bh/aq9OxSfx+McDy96zcHSKs9VmfensmqqtXVA==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIGjzCCBHegAwIBAgIQVMN+ETtXRMMAAAAAXyRDJDANBgkqhkiG9w0BAQsFAD
+BIMQswCQYDVQQG 
+EwJIUjEdMBsGA1UEChMURmluYW5jaWpza2EgYWdlbmNpamExGjAYBgNVBAMTEUZpbmEgRGVtbyBD 
+QSAyMDIwMB4XDTIxMTAxOTA4MjY1NloXDTI2MTAxOTA4MjY1NlowWDELMAkGA1UEBhMCSFIxJTAj 
+BgNVBAoTHEFQSVMgSVQgRC5PLk8uIEhSMDI5OTQ2NTAxOTkxDzANBgNVBAcTBlpBR1JFQjERMA8G 
+A1UEAxMIRklTS0FMIDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCnVrIj9eExiFKX 
+TB/t6eMBcb6IqzgmHMrJ6L5r5bUbcg7clP1OTfrOItMyUf2cVAl7B3gjS7rE1Y4LcnApYbx2Mzhf 
+wi/ogmruJpdox32J8LG/1GmOW96Q9zJ/BlqLBrOBAmQ1i69QonilnbwQWi+XKqMRAqtNkJud6G44 
+04kWiDgdXT6obZshJQaimG4dVd/bBxliGNKPg9nK6ZI2Ng4Vy075ajRe3bq8NseNhlCLB26UL1WS 
+hkDNpGYTiN8K8Xyx7JFNpytC3ufS5PhPM8TLjJUYARrACC/CxHulWavJd4qVM/8ZYlORhJbBuc1d 
+jjpyGsqVgYq5LED51jSCdV8XAgMBAAGjggJjMIICXzAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw 
+FAYIKwYBBQUHAwQGCCsGAQUFBwMCMIGsBgNVHSAEgaQwgaEwgZQGCSt8iFAFIQ8DATCBhjBBBggr 
+BgEFBQcCARY1aHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3BzL2Nwc25xY2RlbW8yMDE0djItMC1o 
+ci5wZGYwQQYIKwYBBQUHAgEWNWh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2Nwcy9jcHNucWNkZW1v 
+MjAxNHYyLTAtZW4ucGRmMAgGBgQAj3oBATB9BggrBgEFBQcBAQRxMG8wKAYIKwYBBQUHMAGGHGh0 
+dHA6Ly9kZW1vMjAxNC1vY3NwLmZpbmEuaHIwQwYIKwYBBQUHMAKGN2h0dHA6Ly9kZW1vLXBraS5m 
+aW5hLmhyL2NlcnRpZmlrYXRpL2RlbW8yMDIwX3N1Yl9jYS5jZXIwgbQGA1UdHwSBrDCBqTCBpqCB 
+o6CBoIYoaHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3JsL2RlbW8yMDIwLmNybIZ0bGRhcDovL2Rl 
+bW8tbGRhcC5maW5hLmhyL2NuPUZpbmElMjBEZW1vJTIwQ0ElMjAyMDIwLG89RmluYW5jaWpza2El 
+MjBhZ2VuY2lqYSxjPUhSP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3QlM0JiaW5hcnkwHwYDVR0j 
+BBgwFoAUla9S1cLp1zeEPm5Jj8kf6lwrX88wHQYDVR0OBBYEFHbh5aGV7SnN828H+8jZ/1kRMgkm 
+MAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggIBAGZLzwPNAnhYAESsDRLdnZ/7a7uoKLOTh0hN 
+UgqESGOkB8xcuQFHHKLwQlmFdv+/2i3WPT4aXg0PNPFIlNLABIlnZEJfhpAsnswCBcZfBMTFqmOU 
+lJkQIghSSVHm7yC2eJBiB9x/PnZQzd2FteHOprT5exd2wvHIhQEtmLDpI+hDNv6zvBxrRcz6aT4v 
+5KfmkP5O4z1jj5y4Ug5Su7TX2KpT/zRNPPPQXsqg+dS+6C+FJFG7UFRHEMSvAc2BFDm+T8UXUIXE 
+61jSOj/Dw1g2mSSdJFLNrB8T0hWaj7EX32sEd0KGQJmBsK4hMiUmV96ZmJFcJksiuwPcAbXLdvJt 
+8R6T9KuVsxMBKt7QVYFd723o2hiPTCbc/2LrwAIpAIsinlOi238SyNvVqvsuRVe8EWKZo+KV9JZ9 
+IQksz/vXNehGt/f4NCfGqZZiWndbp1DewISSLifqlKyGzghC49jwUu03HD86RRFYw6l6BNf0s9s2 
+YyppEndTCJWruaX+YYEYxulVBY0E4hohidwWBCGg4wWKWEUYBnHuzaSTEzx6KQUZtRoxuISPGujE 
+6fwb4oSExQ3FcURRszb+kwajXiptZk1kJrbF5GBYeGq74mFRth+pRaoEWWdGzz38Az6GXD+dg9Fh 
+qCvj6Z5PzH80VoVso9YQVauOWavRdfIgDIxLenNx</X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2020,O=Financijska 
+agencija,C=HR</X509IssuerName> 
+<X509SerialNumber>112670206482201164408252157595450884900</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</tns:PromijeniPodatkeRacunaZahtjev> 
+</soapenv:Body> 
+</soapenv:Envelope>

@@ -84,38 +84,19 @@
 
 ## Image Inventory
 
-### Code Examples (8 images)
+### Code Examples (57 XML files)
 
-1. **Page 10** - Namespace declarations example
-   - File: `xml-namespace-declarations.xml`
-   - Shows XML namespace structure for fiscalization requests
+All XML examples are from the official specification (Chapter 9, pages 115-207, examples 9.1-9.57). Each example includes the complete SOAP envelope structure.
 
-2. **Page 10** - JIR and ZKI calculation example
-   - Included in general documentation
+**Examples include:**
+- Invoice (Racun) - fiscalization requests and responses
+- Payment method change (Promjena nacina placanja) requests and responses
+- Tip (Napojnica) requests and responses
+- Working hours (Radno vrijeme) - get, delete, report operations
+- Echo method examples
+- Error response examples with CIS error codes
 
-3. **Page 12** - Header with timezone example
-   - File: `xml-header-timezone.xml`
-   - Shows header structure with timezone information
-
-4. **Page 16** - Business space XML example
-   - File: `xml-business-space.xml`
-   - Complete business space registration request
-
-5. **Page 20** - Invoice fiscalization XML example
-   - File: `xml-invoice-fiscalization.xml`
-   - Complete invoice fiscalization request
-
-6. **Page 24** - Payment change XML example
-   - File: `xml-payment-change.xml`
-   - Complete payment method change request
-
-7. **Page 32** - ISSN fiscalization XML example
-   - File: `xml-issn-fiscalization.xml`
-   - Complete ISSN fiscalization request
-
-8. **Page 35** - Invoice report XML example
-   - File: `xml-invoice-report.xml`
-   - Complete invoice report request
+For detailed listing and links to all examples, see [Services Detailed Documentation](06-11-services-detailed.md#code-examples).
 
 ### Flow Diagrams (9 images)
 
@@ -186,7 +167,7 @@ All flow diagrams have been converted to Mermaid format in the `diagrams/` direc
 ## Namespaces
 
 ```xml
-xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema"
+xmlns="http://www.apis-it.hr/fin/2012/types/f73"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 ```
@@ -229,14 +210,17 @@ docs/
 │       ├── flow-certificate-validation.mermaid
 │       ├── flow-certificate-chain.mermaid
 │       └── flow-signature-soap.mermaid
-└── code-examples/                        # XML code examples
-    ├── xml-namespace-declarations.xml
-    ├── xml-header-timezone.xml
-    ├── xml-business-space.xml
-    ├── xml-invoice-fiscalization.xml
-    ├── xml-payment-change.xml
-    ├── xml-issn-fiscalization.xml
-    └── xml-invoice-report.xml
+└── code-examples/                        # XML code examples (57 files)
+    ├── racun-*.xml                         # Invoice & invoice check examples (9.1-9.6, 9.31-9.37)
+    ├── promjena-nacina-placanja-*.xml       # Payment change examples (9.7-9.14)
+    ├── prodaja-samoposluzni-*.xml           # Self-service examples (9.15-9.20)
+    ├── napojnica-*.xml                     # Tip/ISSN examples (9.21-9.28)
+    ├── echo-metoda-*.xml                   # Echo method examples (9.29-9.30)
+    ├── promjena-podataka-racuna-*.xml      # Change invoice data examples (9.38-9.41)
+    ├── dohvat-radnog-vremena-*.xml         # Get working hours examples (9.42-9.45)
+    ├── brisanje-radnog-vremena-*.xml       # Delete working hours examples (9.46-9.49)
+    ├── prijava-radnog-vremena-*.xml        # Report working hours examples (9.50-9.53)
+    └── prijava-radnih-vremena-liste-poslovnih-*.xml  # Report for list examples (9.54-9.57)
 ```
 
 ---

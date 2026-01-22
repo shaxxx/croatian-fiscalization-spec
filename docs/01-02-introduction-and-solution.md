@@ -99,6 +99,57 @@ After invoice is issued:
 3. CIS returns JIR (34-character unique identifier)
 4. Print JIR on the invoice (retroactively)
 
+#### Step 4: Invoice Verification (QR Code)
+
+Customers can verify fiscalized invoices using QR codes printed on invoices. The QR code contains a URL to the official verification service.
+
+**Verification Service URL:** `https://porezna.gov.hr/rn`
+
+**QR Code URL Format:**
+
+The QR code contains a URL with parameters for verification:
+
+**Using JIR (for fiscalized invoices):**
+```
+https://porezna.gov.hr/rn?jir={JIR}&datv={DatumVrijeme}&izn={IznosUkupno}
+```
+
+**Example (positive amount):**
+```
+https://porezna.gov.hr/rn?jir=12345678-1234-1234-1234-123456789012&datv=20200921_0630&izn=152599
+```
+
+**Example (negative amount - storno):**
+```
+https://porezna.gov.hr/rn?jir=12345678-1234-1234-1234-123456789012&datv=20210110_1400&izn=-10550
+```
+
+**Using ZKI (for pre-fiscalization verification):**
+```
+https://porezna.gov.hr/rn?zki={ZKI}&datv={DatumVrijeme}&izn={IznosUkupno}
+```
+
+**Example (ZKI verification):**
+```
+https://porezna.gov.hr/rn?zki=12345678123412341234123456789012&datv=20210205_0801&izn=510
+```
+
+**QR Code Parameters:**
+
+| Parameter | Description | Format | Example |
+|-----------|-------------|--------|---------|
+| `jir` | Unique Invoice Identifier | 34 alphanumeric characters | `12345678-1234-1234-1234-123456789012` |
+| `zki` | Security Code Issuer | 32 hexadecimal characters | `12345678123412341234123456789012` |
+| `datv` | Date and time of issue | `YYYYMMDD_HHMM` | `20200921_0630` |
+| `izn` | Total amount in lipas (1 HRK = 100 lipas) | Integer (positive or negative) | `152599` (1525.99 HRK) |
+
+**Implementation Notes:**
+- QR codes should be printed on all fiscalized invoices
+- Both JIR and ZKI can be used for verification
+- The amount is in lipas (cents), not kunas/hrk
+- Negative amounts indicate storno/cancelled invoices
+- Date format uses underscore separator: `YYYYMMDD_HHMM`
+
 ### Time Synchronization Requirements
 
 **CRITICAL:** All systems must have synchronized time!
@@ -117,7 +168,10 @@ After invoice is issued:
 
 All fiscalization messages follow this structure:
 
+> **Note:** `FiskalizacijaRequest` is an **abstract placeholder**. Actual XML uses specific request types such as `RacunZahtjev`, `PromijeniNacPlacZahtjev`, `NapojnicaZahtjev`, etc.
+
 ```xml
+<!-- Abstract placeholder showing common message structure -->
 <FiskalizacijaRequest>
   <Zaglavlje>                    <!-- Header -->
     <IdPoslovnogProstora>...</IdPoslovnogProstora>
@@ -195,7 +249,10 @@ flowchart LR
 
 All CIS responses follow this structure:
 
+> **Note:** `FiskalizacijaResponse` is an **abstract placeholder**. Actual XML uses specific response types such as `RacunOdgovor`, `PromijeniNacPlacOdgovor`, `NapojnicaOdgovor`, etc.
+
 ```xml
+<!-- Abstract placeholder showing common response structure -->
 <FiskalizacijaResponse>
   <Zaglavlje>
     <IdPoslovnogProstora>...</IdPoslovnogProstora>
@@ -218,6 +275,7 @@ All CIS responses follow this structure:
 CIS returns structured error responses:
 
 ```xml
+<!-- Abstract placeholder - actual response types vary by service -->
 <FiskalizacijaResponse>
   <Zaglavlje>...</Zaglavlje>
   <Greske>

@@ -1,0 +1,20 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+<soap:Body> 
+<tns:NapojnicaOdgovor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:tns="http://www.apis-it.hr/fin/2012/types/f73" xsi:schemaLocation="http://www.apis-
+it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd "> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>5ab7fef3-87a0-4f75-b0d4-d83a169ae417</tns:IdPoruke> 
+<tns:DatumVrijeme>20.07.2023T09:07:59</tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Greske> 
+<tns:Greska> 
+<tns:SifraGreske>s009</tns:SifraGreske> 
+<tns:PorukaGreske>Datum izdavanja računa u poruci dostave podataka o napojnici je za više od dva 
+dana manji od trenutnog datuma.</tns:PorukaGreske> 
+</tns:Greska> 
+</tns:Greske> 
+</tns:NapojnicaOdgovor> 
+</soap:Body> 
+</soap:Envelope>

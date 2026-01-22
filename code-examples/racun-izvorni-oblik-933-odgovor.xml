@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "  
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance "> 
+<soap:Body> 
+<tns:ProvjeraOdgovor  
+xsi:schemaLocation ="http://www.apis-it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd " 
+xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 "> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>733362f1-063f-11e2-892e-0800200c9a66 </tns:IdPoruke> 
+<tns:DatumVrijeme>04.07.2016T21:10:38 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Racun> 
+<tns:Oib>98765432198 </tns:Oib> 
+<tns:USustPdv>true</tns:USustPdv> 
+<tns:DatVrijeme>04.07.2016T12:00:14 </tns:DatVrijeme>  
+<tns:OznSlijed>P</tns:OznSlijed> 
+<tns:BrRac> 
+<tns:BrOznRac>12</tns:BrOznRac> 
+<tns:OznPosPr>POSL1</tns:OznPosPr> 
+<tns:OznNapUr>12</tns:OznNapUr> 
+</tns:BrRac> 
+<tns:Pdv> 
+<tns:Porez> 
+<tns:Stopa>25.00</tns:Stopa> 
+<tns:Osnovica>10.00</tns:Osnovica> 
+<tns:Iznos>2.50</tns:Iznos> 
+</tns:Porez> 
+</tns:Pdv> 
+<tns:Pnp> 
+<tns:Porez> 
+<tns:Stopa>3.00</tns:Stopa> 
+<tns:Osnovica>10.00</tns:Osnovica> 
+<tns:Iznos>0.30</tns:Iznos> 
+</tns:Porez> 
+</tns:Pnp> 
+<tns:IznosOslobPdv>12.00</tns:IznosOslobPdv> 
+<tns:Naknade> 
+<tns:Naknada> 
+<tns:NazivN>Povratna naknada </tns:NazivN> 
+<tns:IznosN>1.00</tns:IznosN> 
+</tns:Naknada> 
+</tns:Naknade> 
+<tns:IznosUkupno>25.80</tns:IznosUkupno> 
+<tns:NacinPlac>K</tns:NacinPlac> 
+<tns:OibOper>01234567890 </tns:OibOper> 
+<tns:ZastKod>e4d909c290d0fb1ca068ffaddf22cbd0 </tns:ZastKod> 
+<tns:NakDost>false</tns:NakDost> 
+<tns:ParagonBrRac>123/458/5 </tns:ParagonBrRac> 
+<tns:SpecNamj></tns:SpecNamj> 
+</tns:Racun> 
+<tns:Greske> 
+<tns:Greska> 
+<tns:SifraGreske>v100</tns:SifraGreske> 
+<tns:PorukaGreske>Poruka je ispravna. </tns:PorukaGreske> 
+</tns:Greska> 
+</tns:Greske> 
+</tns:ProvjeraOdgovor> 
+</soap:Body> 
+</soap:Envelope>

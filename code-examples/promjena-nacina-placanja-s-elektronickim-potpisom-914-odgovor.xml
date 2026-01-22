@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<soap:Envelope  xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+<soap:Body> 
+<tns:PromijeniNacPlacOdgovor  xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " xsi:schemaLocation ="http://www.apis-
+it.hr/fin/2012/types/f73 ../schema/FiskalizacijaSchema.xsd " Id="G0x7f45aa9a40f8-
+4D"><tns:Zaglavlje> 
+<tns:IdPoruke>863ce2af-cfc6-43ba-9acf-9d6e67ccff49 </tns:IdPoruke> 
+<tns:DatumVrijeme>25.11.2021T11:11:09 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Greske> 
+<tns:Greska> 
+<tns:SifraGreske>s007</tns:SifraGreske> 
+<tns:PorukaGreske>Datum izdavanja računa u poruci promjene načina plaćanja nije jednak 
+trenutnom datumu. </tns:PorukaGreske> 
+</tns:Greska> 
+</tns:Greske> 
+<Signature  xmlns="http://www.w3.org/2000/09/xmldsig# "> 
+<SignedInfo> 
+<CanonicalizationMethod  Algorithm ="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/> 
+<SignatureMethod  Algorithm ="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference  URI="#G0x7f45aa9a40f8-4D "> 
+<Transforms> 
+<Transform  Algorithm ="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform  Algorithm ="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/> 
+</Transforms> 
+<DigestMethod  Algorithm ="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>J7IgdsewbZRJe5pmTyJqsRD9aGM= </DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>FK4g1upTfVp5f8Yp6ZZN34heASap35uW1u1b0NTqIw2xP7XCQfuwI8o4OgNpV7RX+lJR
+NfnMdJFs38s4vyXdYkxdRnIXZFR2FqKSJ3PM/X3cnY6V4cioaNH6gvAY5Ns0f6sKoLiPOVwhYzWQzQEY7Qvr4
+o7b3cYlR/RZYhEGm37KvKlVCc3MaCt+d+BMzZfJAM639pKBmU/UWI5PMdrE7JUaH+kRpBdt+mhxR0xGXS
+md8qg9m1hFXv7NM6LqNhoPj+YQ4Rejm+JyqxqrDda8G8fClRlG4ukSgp78eG5ivhBUI0alfMlAuK1UECgm/J
+RQJiEJ4/UX8g9PjlF7ydzsIg== </SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIG1DCCBbygAwIBAgITWAAAVkt9sN51UFL7XwAAAABWSzANBgkqhkiG9w0BAQsFAD
+BXMQswCQYDVQQGEwJIUjEQMA4GA1UEChMHQVBJUyBJVDE2MDQGA1UEAxMtQVBJUyBJVCBJbnRlcm5hb
+CBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eSAtIFYxMB4XDTIxMDQwODA1MjA0NFoXDTIyMDQwODA1MjA0N
+FowTTELMAkGA1UEBhMCSFIxDzANBgNVBAcTBlphZ3JlYjEXMBUGA1UEChMOQVBJUyBJVCBkLm8uby4xFD
+ASBgNVBAMTC2RwLWFwcC10ZXN0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwZtO6sEzPG
+N7NmC5m52iom2scWofnNy6AWv6rD15hIBVJQTIp/UJnR6OX2mdySrFK4dR1X11EuyZk1rmrgwZZBTr64gs
+QbpIm6Z5sgqM8O920ZeG43sV5S7ZtUWbp2JpE5SLcZxkHik8RWaxcwJ2Y/KWDKM6fse5FqPD2j7oNuaY2D
+Vj4l9B81LqspbVK1D+Jflzm5prqD7cvZdkh+LnjwMTKL8cMGcS9bwJatoDOyfAm7wB+QfgbXJoviw9AdDpq6
+HqHECPRJx+jnuDGJbM7foO0lRHmETRD9PfV3zXfrbiYxs6ae9bFMsCert+Yj2MY9w7buwVDFjQfj5zvENr2wID
+AQABo4IDoTCCA50wHQYDVR0OBBYEFLGib/4zbe8BGtret3wzIOyQVw/HMB8GA1UdIwQYMBaAFO2nb4n/V
+QJbDS9K5GUZkuhtHhgHMIIBVQYDVR0fBIIBTDCCAUgwggFEoIIBQKCCATyGgeBsZGFwOi8vL0NOPUFQSV
+MlMjBJVCUyMEludGVybmFsJTIwQ2VydGlmaWNhdGlvbiUyMEF1dGhvcml0eSUyMC0lMjBWMSxDTj10YXJhe
+mVkLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF
+0aW9uLERDPWd6YW9wLERDPWxvY2FsP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDb
+GFzcz1jUkxEaXN0cmlidXRpb25Qb2ludIZXaHR0cDovL3d3dy5hcGlzLWl0LmhyL2NybC9BUElTJTIwSVQlMjBJ
+bnRlcm5hbCUyMENlcnRpZmljYXRpb24lMjBBdXRob3JpdHklMjAtJTIwVjEuY3JsMIIBUgYIKwYBBQUHAQEEgg
+FEMIIBQDCB2AYIKwYBBQUHMAKGgctsZGFwOi8vL0NOPUFQSVMlMjBJVCUyMEludGVybmFsJTIwQ2VydGl
+maWNhdGlvbiUyMEF1dGhvcml0eSUyMC0lMjBWMSxDTj1BSUEsQ049UHVibGljJTIwS2V5JTIwU2VydmljZX
+MsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz1nemFvcCxEQz1sb2NhbD9jQUNlcnRpZmljYXRlP2J
+hc2U/b2JqZWN0Q2xhc3M9Y2VydGlmaWNhdGlvbkF1dGhvcml0eTBjBggrBgEFBQcwAoZXaHR0cDovL3d3dy
+5hcGlzLWl0LmhyL2NybC9BUElTJTIwSVQlMjBJbnRlcm5hbCUyMENlcnRpZmljYXRpb24lMjBBdXRob3JpdHkl
+MjAtJTIwVjEuY3J0MAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgWgMD0GCSsGAQQBgjcVBwQwMC4GJis
+GAQQBgjcVCIOAj2mD7q8WhZWFKYfYx2SBmvFZa4TIvT+F5rY8AgFkAgEiMFIGA1UdIARLMEkwRwYPKwYB
+BAGB03yDfQULBQQCMDQwMgYIKwYBBQUHAgEWJmh0dHA6Ly93d3cuYXBpcy1pdC5sb2NhbC9jcC9jcDQt
+MC5wZGYAMA0GCSqGSIb3DQEBCwUAA4IBAQBlhEzaa+lH/M8ue/Kao5e5Truz0eSJXqGBXdvUEuTI3qJVyn
+7SnXkdgPvNbLRNm7SNaE5XzMe0b7Z8S2STqAvRg4L3njgcb6v2ZLa+JDRh/mJex1UB0qKBVwzy97SLFNdU
+B58SqwCLmsNOwiN3cioY2fwXA0JU+VWU6QdtbB7Q7oACySNFyyQqx/h3QeYDfNkcLriy/gjpn4XL+ibyHN9d
+BU1q7mkKQC1KVfDIrRp4bsiQdgFiWDjTBeZYTDRaW+6/GHdbaYkyOSi288GNKGqT0VkDuJ6Zq4UKgPxWTo
+XQIYh/RtJHKvVBqV26lbl4Cs1oPNPdCwBYSLUdpHrgHwMg </X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=APIS IT Internal Certification Authority - V1, O=APIS IT, 
+C=HR</X509IssuerName> 
+<X509SerialNumber>1962465692176274052552575140485016803923220043 </X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</tns:PromijeniNacPlacOdgovor> 
+</soap:Body> 
+</soap:Envelope>

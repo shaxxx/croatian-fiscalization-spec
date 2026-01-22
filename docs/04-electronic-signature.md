@@ -139,7 +139,10 @@ string signatureValue = Convert.ToBase64String(signature);
 
 Add SignatureXml as the **last child** of the root element:
 
+> **Note:** `FiskalizacijaRequest` is an **abstract placeholder**. Actual XML uses specific request types such as `RacunZahtjev`, `PromijeniNacPlacZahtjev`, etc.
+
 ```xml
+<!-- Abstract placeholder showing SignatureXml placement -->
 <FiskalizacijaRequest>
   <Zaglavlje>...</Zaglavlje>
   <Racun>...</Racun>
@@ -307,13 +310,16 @@ flowchart TD
 
 ### SOAP Message Structure
 
+> **Note:** `FiskalizacijaRequest` is an **abstract placeholder**. Actual XML uses specific request types.
+
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Header>
     <!-- SOAP headers (if any) -->
   </soap:Header>
   <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
+    <!-- Abstract: In actual XML this is RacunZahtjev, PromijeniNacPlacZahtjev, etc. -->
+    <FiskalizacijaRequest xmlns="http://www.apis-it.hr/fin/2012/types/f73">
       <Zaglavlje>...</Zaglavlje>
       <Racun>...</Racun>
       <SignatureXml>                          <!-- Signature here -->
@@ -327,8 +333,8 @@ flowchart TD
 ```
 
 **Key Points:**
-- SignatureXml is inside FiskalizacijaRequest (before SOAP wrapping)
-- Signature covers everything in FiskalizacijaRequest except SignatureXml itself
+- SignatureXml is inside the request element (before SOAP wrapping)
+- Signature covers everything in the request except SignatureXml itself
 - SOAP envelope is added AFTER signing
 
 ### SOAP Flow

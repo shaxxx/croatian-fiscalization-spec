@@ -1,0 +1,164 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+<soapenv:Header/> 
+<soapenv:Body> 
+<fis:PrijaviRadnoVrijemeZaPoslovniceOdgovor xmlns:fis="http://www.apis-
+it.hr/fin/2012/types/f73" Id="G0x7f4b15f91150-5D"> 
+<fis:Zaglavlje> 
+<fis:IdPoruke>5a9289da-53fc-43bc-889f-dfa272746140</fis:IdPoruke> 
+<fis:DatumVrijeme>08.12.2025T12:52:03</fis:DatumVrijeme> 
+</fis:Zaglavlje> 
+<fis:PoslovniProstoriOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000001</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s103</fis:SifraGreske> 
+<fis:PorukaGreske>Datum od kojeg vrijedi redovno radno vrijeme mora biti veće 
+od trenutnog datuma i ne smije biti za više od 45 dana veće od trenutnog 
+datuma.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000002</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000003</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000004</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000005</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000006</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000007</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000008</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+<fis:PoslovnicaOdgovor> 
+<fis:OznPosPr>MOJTESTPOSLZ00000009</fis:OznPosPr> 
+<fis:Greske> 
+<fis:Greska> 
+<fis:SifraGreske>s107</fis:SifraGreske> 
+<fis:PorukaGreske>Već postoji redovno radno vrijeme koje vrijedi od 21.12.2025 
+kakvo je dostavljeno u poruci.</fis:PorukaGreske> 
+</fis:Greska> 
+</fis:Greske> 
+</fis:PoslovnicaOdgovor> 
+</fis:PoslovniProstoriOdgovor> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-
+20010315"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#G0x7f4b15f91150-5D"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>bWRh2JJo9H0+1eW5gPGwDyD71lI=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>VUSMFO6ROCsLHQep8yfE1MvA1Y+KNCL58B85Is74PmV7g6Xo7FjygARqlc0YAqv
+K7RWdansAuidJOGQlKqhsKu8pcjsErHQIZlZxfmP3ecvDehbei8sU/6yU3aTz7SSVWaY9mb4Xjrys8m
+7nj2BbirxrEWv6fl8cE4URT7GHoJ19Dx6mEAeS0Rwk2VtR49vyMNpp4SaTxdflrOvHok+kr/GwPFx7S
+1ypsKg3iiwVm4dcuNCOsPblygj6Dt6sAme2Ju19D21mYh9/6Ie+niDGjDka80wfqzgD+E3eXDgAEfF5
+bCuWLYQ/N9m3Yyo/5Dvn/vwvbotgAp9YbVPBeKrAHw==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIGwTCCBKmgAwIBAgIRAPTXc+wJYIoHpsTEzNUWmB0wDQYJKoZIhvcNAQELBQ
+AwSDELMAkGA1UEBhMCSFIxHTAbBgNVBAoTFEZpbmFuY2lqc2thIGFnZW5jaWphMRowGAYDVQQDExFGa
+W5hIERlbW8gQ0EgMjAyMDAeFw0yNDA3MTAwNjA1MzBaFw0yNjA3MTAwNjA1MzBaMGcxCzAJBgNVBAYT
+AkhSMRcwFQYDVQQKEw5BUElTIElUIEQuTy5PLjEWMBQGA1UEYRMNSFIwMjk5NDY1MDE5OTEPMA0GA1U
+EBxMGWkFHUkVCMRYwFAYDVQQDEw1maXNrYWxjaXN0ZXN0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMI
+IBCgKCAQEAppLwkyPYlXsjaOBGJIfbuAUlkQgXWYOiSD0SNeCu92hqXoZsHNAoSPdDQlwaVKd+zf/3+
+O+SxPdA7XpLOpRe0Se00YEM2uinzuigNb/Iwb9nvh9VXn5CvOdTAyqe11wq1pi2t2M9jKRRV8LQSr8O
+OePFPFt9kV2emuB8LKili72gMLis4OMHUmMsWgEweSxbxXA1lHuv81+4wccaz4pKQZheCPh5Bo1HRPF
+fH9EvzhsQz9leT6rZKFLR7x/fDfO/A77CQMskmuoCXkFYk+HwY4YQnwvN1B0bAY6UlZOnqiXel499+2
+fnedQzFgxbkqMrOnknLT2iSt//uRCa7niZIQIDAQABo4IChTCCAoEwDgYDVR0PAQH/BAQDAgWgMB0GA
+1UdJQQWMBQGCCsGAQUFBwMEBggrBgEFBQcDAjCBrAYDVR0gBIGkMIGhMIGUBgkrfIhQBSEPAwIwgYYw
+QQYIKwYBBQUHAgEWNWh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2Nwcy9jcHNucWNkZW1vMjAxNHYyLTA
+taHIucGRmMEEGCCsGAQUFBwIBFjVodHRwOi8vZGVtby1wa2kuZmluYS5oci9jcHMvY3BzbnFjZGVtbz
+IwMTR2Mi0wLWVuLnBkZjAIBgYEAI96AQEwfQYIKwYBBQUHAQEEcTBvMCgGCCsGAQUFBzABhhxodHRwO
+i8vZGVtbzIwMTQtb2NzcC5maW5hLmhyMEMGCCsGAQUFBzAChjdodHRwOi8vZGVtby1wa2kuZmluYS5o
+ci9jZXJ0aWZpa2F0aS9kZW1vMjAyMF9zdWJfY2EuY2VyMCAGA1UdEQQZMBeBFWl2YW4udmlsaWNAYXB
+pcy1pdC5ocjCBtAYDVR0fBIGsMIGpMIGmoIGjoIGghihodHRwOi8vZGVtby1wa2kuZmluYS5oci9jcm
+wvZGVtbzIwMjAuY3JshnRsZGFwOi8vZGVtby1sZGFwLmZpbmEuaHIvY249RmluYSUyMERlbW8lMjBDQ
+SUyMDIwMjAsbz1GaW5hbmNpanNrYSUyMGFnZW5jaWphLGM9SFI/Y2VydGlmaWNhdGVSZXZvY2F0aW9u
+TGlzdCUzQmJpbmFyeTAfBgNVHSMEGDAWgBSVr1LVwunXN4Q+bkmPyR/qXCtfzzAdBgNVHQ4EFgQUZKz
+NSWN7CnhG6g8JcpSxNWwL2ZMwCQYDVR0TBAIwADANBgkqhkiG9w0BAQsFAAOCAgEApOvYwXfjN8Y1rb
+ZWjbzuSLPRpzmQrzq3vf7Rqqt4AkS8ajFP3ONgKNC5Po/zVWx6NgpXRVlqANEAEEM0QB96YkTyLM8kT
+GWu0guvZHwMwO7cKdHJahgybXgOXnZZulYAMvIWs9Ws0eR8rFs2yE1/O3ZaViq6notZcxOlGzPhSdtz
+0Q993rgig+dkmIfO6jm+8bgfqEjV7BFvchy3LknhpXgdYUTF2SRXHYpsXECkQRcHdCdSoQPVlhTX4Sc
+LV+w5G0zs+tKoQahnybg0Ux/n60tK2Lkp28FIDESmdqLwE+0QzjojB1d2OW2LTSbKKqNTvIpETD9D03
+odQ9LbRuUjJzNUzrBKH3c1U1A40Wq0dfXa4e4NqEdWDsLXHwoYyPek58Z6D86pqItudeyfEiE8SUJL7
+wHZ0qXt3ozDDPeKUD9f2es3fsjHkE97VBlToPna+Bg5wLq5/v2AGnvzcDYhjEsVr8VySJMcqZltTQnV
+SK3jYJn2fMChcwnaZdRopcyAz+KpknsC9smF5UMI00bTU32XrQ9PTgi18cWEQjyZDjbtGTUsS8SeOsO
+DrRqQIwWzbydcNYKqja26CjfCFRxlEsbTvTF1YBUzmY6FGxASZVcnhqW0R7W6ieIAxQphhc3tt+Eh4T
+AF4pwniURdd4RK3dtZNDluRZlI+wFV9c1j2Rs=</X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2020, O=Financijska agencija, 
+C=HR</X509IssuerName> 
+<X509SerialNumber>325450325973957308031939306065516468253</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</fis:PrijaviRadnoVrijemeZaPoslovniceOdgovor> 
+</soapenv:Body> 
+</soapenv:Envelope>

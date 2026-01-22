@@ -2,6 +2,8 @@
 
 **Source:** Pages 55-133 of Technical Specification v2.6
 
+> **Note:** Complete XML examples for all services below are available in [code-examples](../code-examples/) (Chapter 9, examples 9.1-9.57). Each file is transcribed exactly as it appears in the official PDF specification.
+
 ---
 
 ## 5.1 Poslovni prostor (Business Space) - Pages 55-65
@@ -14,46 +16,17 @@ Register, update, or manage business spaces (locations) where fiscalization occu
 - Updating business space information
 - Registering multiple devices within a business space
 
-### Request Structure
+### XML Examples
 
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>...</Zaglavlje>
-  <PoslovniProstor>
-    <Oib>12345678901</Oib>
-    <Naziv>Naziv tvrtke d.o.o.</Naziv>
-
-    <Adresa>
-      <Ulica>Ilica 1</Ulica>
-      <KucniBroj>10</KucniBroj>
-      <KucniBrojDodatak>A</KucniBrojDodatak>
-      <BrojPoste>10000</BrojPoste>
-      <Naselje>Zagreb</Naselje>
-      <Opcina></Opcina>  <!-- Optional -->
-    </Adresa>
-
-    <PoslovniProstor>
-      <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-      <VrstaPoslovnogProstora>Prodajno mjesto</VrstaPoslovnogProstora>
-    </PoslovniProstor>
-
-    <!-- Additional devices -->
-    <PoslovniProstor>
-      <OznakaPoslovnogProstora>2</OznakaPoslovnogProstora>
-    </PoslovniProstor>
-
-    <RadnoVrijeme>
-      <Dan>Ponedjeljak</Dan>
-      <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-      <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-    </RadnoVrijeme>
-
-    <DatumPocetkaPrimjene>2025-01-01</DatumPocetkaPrimjene>
-  </PoslovniProstor>
-
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaRequest>
-```
+See [code-examples directory](../code-examples/) for complete XML examples. Working hours related examples:
+- [Get working hours request](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-942-zahtjev.xml)
+- [Get working hours response](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-943-odgovor.xml)
+- [Delete working hours request](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-946-zahtjev.xml)
+- [Delete working hours response](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-947-odgovor.xml)
+- [Report working hours request](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-950-zahtjev.xml)
+- [Report working hours response](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-951-odgovor.xml)
+- [Report for list request](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-954-zahtjev.xml)
+- [Report for list response](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-955-odgovor.xml)
 
 ### Key Elements
 
@@ -66,15 +39,6 @@ Register, update, or manage business spaces (locations) where fiscalization occu
 | `OznakaPoslovnogProstora` | string | Yes | Device identifier |
 | `RadnoVrijeme` | complex | No | Working hours |
 | `DatumPocetkaPrimjene` | date | Yes | Start date |
-
-### Response
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <Status>OK</Status>
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaResponse>
-```
 
 ---
 
@@ -104,37 +68,26 @@ flowchart TD
 
 ### Request Structure
 
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>
-    <IdPoslovnogProstora>123</IdPoslovnogProstora>
-    <Oib>12345678901</Oib>
-    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-  </Zaglavlje>
+See actual XML examples:
+- [Invoice - Original form - Request](../code-examples/racun-izvorni-oblik-91-zahtjev.xml)
+- [Invoice - With signature - Request](../code-examples/racun-s-elektronickim-potpisom-92-zahtjev.xml)
+- [Invoice - With recipient OIB - Request](../code-examples/racun-s-oib-om-primatelja-935-zahtjev.xml)
+- [Change invoice data - Request](../code-examples/racun-938-zahtjev.xml)
 
-  <Racun>
-    <Oib>12345678901</Oib>
-    <OznakaSlijeda>P</OznakaSlijeda>  <!-- P, N, or specific -->
-    <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-    <BrRacuna>1/2025</BrRacuna>
-    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
+**Element structure:**
+- `<tns:RacunZahtjev Id="...">` - Root element with unique ID
+- `<tns:Zaglavlje>` - Header (IdPoruke, DatumVrijeme)
+- `<tns:Racun>` - Invoice body with OIB, timestamps, amounts
+- `<Signature>` - Digital signature
 
-    <!-- Payment methods -->
-    <NaciniPlacanja>
-      <NacinPlacanja>
-        <Naziv>G</Naziv>  <!-- G=Gotovina, K=Kartica, etc. -->
-        <Iznos>100.00</Iznos>
-      </NacinPlacanja>
-    </NaciniPlacanja>
+### Response Structure
 
-    <IznosUkupno>100.00</IznosUkupno>
-
-    <!-- Tax breakdown -->
-    <UkupnoPorez>
-      <Porez>
-        <Naziv>PDV</Naziv>
-        <Stopa>25.00</Stopa>
-        <Osnovica>80.00</Osnovica>
+See actual XML examples:
+- [Invoice - Original form - Response](../code-examples/racun-izvorni-oblik-93-odgovor.xml)
+- [Invoice - With signature - Response](../code-examples/racun-s-elektronickim-potpisom-94-odgovor.xml)
+- [Invoice - Error response](../code-examples/racun-greska-s-elektronickim-potpisom-96-odgovor.xml)
+- [Invoice with recipient OIB - Response](../code-examples/racun-s-oib-om-primatelja-937-odgovor.xml)
+- [Change invoice data - Response](../code-examples/racun-941-odgovor.xml)
         <Iznos>20.00</Iznos>
       </Porez>
     </UkupnoPorez>
@@ -170,13 +123,7 @@ flowchart TD
 
 ### Response Structure
 
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <JIR>1234567890123456789012345678901234</JIR>
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaResponse>
-```
+*See actual XML examples in [code-examples](../code-examples/)*
 
 **JIR Format:** 34 alphanumeric characters
 
@@ -190,31 +137,13 @@ Update payment information for a previously fiscalized invoice.
 ### Use Case
 Customer pays with different method than originally issued (e.g., switched from cash to card).
 
-### Request Structure
-
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>...</Zaglavlje>
-
-  <PromjenaNacinaPlacanja>
-    <Oib>12345678901</Oib>
-    <OznakaSlijeda>P</OznakaSlijeda>
-    <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-    <BrRacuna>1/2025</BrRacuna>
-    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-    <IznosUkupno>100.00</IznosUkupno>
-
-    <NaciniPlacanja>
-      <NacinPlacanja>
-        <Naziv>K</Naziv>
-        <Iznos>100.00</Iznos>
-      </NacinPlacanja>
-    </NaciniPlacanja>
-  </PromjenaNacinaPlacanja>
-
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaRequest>
-```
+### XML Examples
+- [Payment change - Original form - Request](../code-examples/promjena-nacina-placanja-izvorni-oblik-97-zahtjev.xml)
+- [Payment change - With signature - Request](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-98-zahtjev.xml)
+- [Payment change - Original form - Response](../code-examples/promjena-nacina-placanja-izvorni-oblik-99-odgovor.xml)
+- [Payment change - With signature - Response](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-910-odgovor.xml)
+- [Payment change - Error - Request](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-911-zahtjev.xml)
+- [Payment change - Error - Response](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-914-odgovor.xml)
 
 ### Important Notes
 
@@ -225,13 +154,7 @@ Customer pays with different method than originally issued (e.g., switched from 
 - Must include original invoice identification
 
 ### Response
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <Status>OK</Status>
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaResponse>
-```
+*See actual XML examples in [code-examples](../code-examples/)*
 
 ---
 
@@ -242,41 +165,7 @@ Fiscalize invoices with ISSN (specific invoice type for certain business sectors
 
 ### Request Structure
 
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>...</Zaglavlje>
-
-  <Racun>
-    <Oib>12345678901</Oib>
-    <OznakaSlijeda>P</OznakaSlijeda>
-    <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-    <BrRacuna>1/2025</BrRacuna>
-    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-
-    <NaciniPlacanja>
-      <NacinPlacanja>
-        <Naziv>G</Naziv>
-        <Iznos>50.00</Iznos>
-      </NacinPlacanja>
-    </NaciniPlacanja>
-
-    <IznosUkupno>50.00</IznosUkupno>
-    <UkupnoPorez>
-      <Porez>
-        <Naziv>PDV</Naziv>
-        <Stopa>25.00</Stopa>
-        <Osnovica>40.00</Osnovica>
-        <Iznos>10.00</Iznos>
-      </Porez>
-    </UkupnoPorez>
-
-    <!-- ISSN-specific element -->
-    <ISSN>123456789012345</ISSN>
-  </Racun>
-
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaRequest>
-```
+*See actual XML examples in [code-examples](../code-examples/) - Note: The PDF specification describes ISSN fiscalization, but specific ISSN XML examples are not provided in Chapter 9 examples.*
 
 ### ISSN Element
 
@@ -305,27 +194,7 @@ Generate reports about issued invoices for internal audit or tax purposes.
 
 ### Request Structure
 
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>...</Zaglavlje>
-
-  <IzvjesceOIzdanomRacunu>
-    <Oib>12345678901</Oib>
-    <OznakaSlijeda>P</OznakaSlijeda>
-    <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-    <BrRacuna>1/2025</BrRacuna>
-    <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-    <IznosUkupno>100.00</IznosUkupno>
-
-    <TipIzvjesca>PO</TipIzvjesca>
-    <DatumVrijemeIzdavanja>2025-12-08T10:00:00+01:00</DatumVrijemeIzdavanja>
-    <OibPoslovneJedinice>12345678901</OibPoslovneJedinice>
-    <NacinPlacanja>G</NacinPlacanja>
-  </IzvjesceOIzdanomRacunu>
-
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaRequest>
-```
+*See actual XML examples in [code-examples](../code-examples/) - Note: The PDF specification describes invoice reports, but specific report XML examples are not provided in Chapter 9 examples.*
 
 ### Key Elements
 
@@ -337,13 +206,7 @@ Generate reports about issued invoices for internal audit or tax purposes.
 | `NacinPlacanja` | string | Yes | Payment method |
 
 ### Response
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <Status>OK</Status>
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaResponse>
-```
+*See actual XML examples in [code-examples](../code-examples/)*
 
 ---
 
@@ -361,52 +224,11 @@ Report and verify working hours for business locations.
 
 ### Report Request (PrijaviRadnoVrijeme)
 
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>...</Zaglavlje>
-
-  <PrijaviRadnoVrijemeZaPoslovniceParams>
-    <Oib>12345678901</Oib>
-    <DatumOd>2025-01-01</DatumOd>
-    <DatumDo>2025-12-31</DatumDo>
-
-    <!-- Multiple locations -->
-    <RadnoVrijemePoslovnice>
-      <OibPoslovnice>12345678901</OibPoslovnice>
-      <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-      <RadnoVrijeme>
-        <Dan>Ponedjeljak</Dan>
-        <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-        <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-      </RadnoVrijeme>
-      <RadnoVrijeme>
-        <Dan>Utorak</Dan>
-        <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-        <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-      </RadnoVrijeme>
-    </RadnoVrijemePoslovnice>
-  </PrijaviRadnoVrijemeZaPoslovniceParams>
-
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaRequest>
-```
+*See actual XML examples in [code-examples](../code-examples/)*
 
 ### Retrieve Request (DohvatiRadnoVrijeme)
 
-```xml
-<FiskalizacijaRequest>
-  <Zaglavlje>...</Zaglavlje>
-
-  <DohvatiRadnoVrijemeParams>
-    <Oib>12345678901</Oib>
-    <OibPoslovnice>12345678901</OibPoslovnice>
-    <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-    <Datum>2025-12-08</Datum>
-  </DohvatiRadnoVrijemeParams>
-
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaRequest>
-```
+*See actual XML examples in [code-examples](../code-examples/)*
 
 ### Working Days (Croatian)
 
@@ -422,21 +244,60 @@ Report and verify working hours for business locations.
 
 ### Response Structure
 
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <RadnoVrijemePoslovnice>
-    <OibPoslovnice>12345678901</OibPoslovnice>
-    <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-    <RadnoVrijeme>
-      <Dan>Ponedjeljak</Dan>
-      <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-      <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-    </RadnoVrijeme>
-  </RadnoVrijemePoslovnice>
-  <SignatureXml>...</SignatureXml>
-</FiskalizacijaResponse>
-```
+*See actual XML examples in [code-examples](../code-examples/)*
+
+---
+
+## 5.7 Napojnica (Tip/Gratuity) - Examples 9.21-9.28
+
+### Purpose
+Fiscalize tips/gratuities received by employees.
+
+### XML Examples
+
+See [code-examples directory](../code-examples/) for complete XML examples:
+- [Tip - With signature - Request](../code-examples/napojnica-s-elektronickim-potpisom-921-zahtjev.xml)
+- [Tip - With signature - Request](../code-examples/napojnica-s-elektronickim-potpisom-922-zahtjev.xml)
+- [Tip - With signature - Response](../code-examples/napojnica-s-elektronickim-potpisom-923-odgovor.xml)
+- [Tip - With signature - Response](../code-examples/napojnica-s-elektronickim-potpisom-924-odgovor.xml)
+- [Tip - Request](../code-examples/napojnica-s-elektronickim-potpisom-925-zahtjev.xml)
+- [Tip - Request](../code-examples/napojnica-s-elektronickim-potpisom-926-zahtjev.xml)
+- [Tip - Error - Response](../code-examples/napojnica-s-elektronickim-potpisom-927-odgovor.xml)
+- [Tip - Error - Response](../code-examples/napojnica-s-elektronickim-potpisom-928-odgovor.xml)
+
+### Key Elements
+
+| Element | Type | Required | Description |
+|---------|------|----------|-------------|
+| `Oib` | string(11) | Yes | Taxpayer OIB |
+| `OibPrimatelja` | string(11) | Yes | Recipient OIB (employee) |
+| `DatumVrijeme` | dateTime | Yes | Tip date/time |
+| `Iznos` | decimal | Yes | Tip amount |
+
+### Response Structure
+
+*See actual XML examples in [code-examples](../code-examples/)*
+
+---
+
+## 5.8 Prodaja samoposlužnih uređaja (Self-Service Device Sales) - Examples 9.15-9.20
+
+### Purpose
+Fiscalize sales of self-service devices (e.g., vending machines).
+
+### XML Examples
+
+See [code-examples directory](../code-examples/) for complete XML examples:
+- [Self-service - With signature - Request](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-915-zahtjev.xml)
+- [Self-service - With signature - Request](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-916-zahtjev.xml)
+- [Self-service - With signature - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-917-odgovor.xml)
+- [Self-service - With signature - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-918-odgovor.xml)
+- [Self-service - Error - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-919-odgovor.xml)
+- [Self-service - Error - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-920-odgovor.xml)
+
+### Response Structure
+
+*See actual XML examples in [code-examples](../code-examples/)*
 
 ---
 
@@ -452,12 +313,15 @@ Report and verify working hours for business locations.
   - `IzvjesceOIzdanomRacunu()` - Invoice report
   - `PrijaviRadnoVrijemeZaPoslovnice()` - Report working hours
   - `DohvatiRadnoVrijeme()` - Retrieve working hours
+  - `Napojnica()` - Tip/gratuity fiscalization
+  - `ProdajaSamoposluznihUredjaja()` - Self-service device sales
 
 ### Parameter Classes
 
 - `PoslovniProstorType` - Business space data
 - `RacunType` - Invoice data
 - `PromjenaNacinaPlacanjaType` - Payment change data
+- `NapojnicaType` - Tip/gratuity data
 - `PrijaviRadnoVrijemeZaPoslovniceParams` - Working hours parameters
 - `DohvatiRadnoVrijemeParams` - Working hours query
 
@@ -465,15 +329,81 @@ Report and verify working hours for business locations.
 
 ## Flow Diagrams
 
-- [Invoice Fiscalization Flow](docs/diagrams/flow-fiskalizacija-racuna.mermaid)
-- [Payment Change Flow](docs/diagrams/flow-promjena-placanja.mermaid)
+See individual service sections above for flow diagrams and detailed explanations.
 
 ---
 
 ## Code Examples
 
-- [Business Space XML](../code-examples/xml-business-space.xml)
-- [Invoice Fiscalization XML](../code-examples/xml-invoice-fiscalization.xml)
-- [Payment Change XML](../code-examples/xml-payment-change.xml)
-- [ISSN Fiscalization XML](../code-examples/xml-issn-fiscalization.xml)
-- [Invoice Report XML](../code-examples/xml-invoice-report.xml)
+All XML examples are from the official specification (Chapter 9, examples 9.1-9.57). Each example is transcribed exactly as it appears in the PDF, including proper SOAP envelope structure.
+
+### Invoice (Racun) Examples (9.1-9.6, 9.31-9.37, 9.38-9.41)
+- [Invoice - Original Form - Request](../code-examples/racun-izvorni-oblik-91-zahtjev.xml)
+- [Invoice - With Signature - Request](../code-examples/racun-s-elektronickim-potpisom-92-zahtjev.xml)
+- [Invoice - Original Form - Response](../code-examples/racun-izvorni-oblik-93-odgovor.xml)
+- [Invoice - With Signature - Response](../code-examples/racun-s-elektronickim-potpisom-94-odgovor.xml)
+- [Invoice - Error Response - Original Form](../code-examples/racun-izvorni-oblik-95-odgovor.xml)
+- [Invoice - Error Response - With Signature](../code-examples/racun-greska-s-elektronickim-potpisom-96-odgovor.xml)
+- [Invoice Check - Original Form - Request](../code-examples/racun-izvorni-oblik-931-zahtjev.xml)
+- [Invoice Check - With Signature - Request](../code-examples/racun-s-elektronickim-potpisom-932-zahtjev.xml)
+- [Invoice Check - Original Form - Response](../code-examples/racun-izvorni-oblik-933-odgovor.xml)
+- [Invoice Check - With Signature - Response](../code-examples/racun-s-elektronickim-potpisom-934-odgovor.xml)
+- [Invoice with Recipient OIB - Request](../code-examples/racun-s-oib-om-primatelja-935-zahtjev.xml)
+- [Invoice with Recipient OIB - Request](../code-examples/racun-s-oib-om-primatelja-936-zahtjev.xml)
+- [Invoice with Recipient OIB - Response](../code-examples/racun-s-oib-om-primatelja-937-odgovor.xml)
+- [Change Invoice Data - Request](../code-examples/racun-938-zahtjev.xml)
+- [Change Invoice Data - Response](../code-examples/racun-939-odgovor.xml)
+- [Change Invoice Data - Request](../code-examples/racun-940-zahtjev.xml)
+- [Change Invoice Data - Response](../code-examples/racun-941-odgovor.xml)
+
+### Payment Change (Promjena Nacina Placanja) Examples (9.7-9.14)
+- [Payment Change - Original Form - Request](../code-examples/promjena-nacina-placanja-izvorni-oblik-97-zahtjev.xml)
+- [Payment Change - With Signature - Request](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-98-zahtjev.xml)
+- [Payment Change - Original Form - Response](../code-examples/promjena-nacina-placanja-izvorni-oblik-99-odgovor.xml)
+- [Payment Change - With Signature - Response](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-910-odgovor.xml)
+- [Payment Change - Error - Request](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-911-zahtjev.xml)
+- [Payment Change - Error - Request](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-912-zahtjev.xml)
+- [Payment Change - Error - Response](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-913-odgovor.xml)
+- [Payment Change - Error - Response](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-914-odgovor.xml)
+
+### Self-Service Device Sales (Prodaja samoposlužnih uređaja) Examples (9.15-9.20)
+- [Self-service - With Signature - Request](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-915-zahtjev.xml)
+- [Self-service - With Signature - Request](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-916-zahtjev.xml)
+- [Self-service - With Signature - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-917-odgovor.xml)
+- [Self-service - With Signature - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-918-odgovor.xml)
+- [Self-service - Error - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-919-odgovor.xml)
+- [Self-service - Error - Response](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-920-odgovor.xml)
+
+### Tip (Napojnica) Examples (9.21-9.28)
+- [Tip - With Signature - Request](../code-examples/napojnica-s-elektronickim-potpisom-921-zahtjev.xml)
+- [Tip - With Signature - Request](../code-examples/napojnica-s-elektronickim-potpisom-922-zahtjev.xml)
+- [Tip - With Signature - Response](../code-examples/napojnica-s-elektronickim-potpisom-923-odgovor.xml)
+- [Tip - With Signature - Response](../code-examples/napojnica-s-elektronickim-potpisom-924-odgovor.xml)
+- [Tip - Request](../code-examples/napojnica-s-elektronickim-potpisom-925-zahtjev.xml)
+- [Tip - Request](../code-examples/napojnica-s-elektronickim-potpisom-926-zahtjev.xml)
+- [Tip - Error - Response](../code-examples/napojnica-s-elektronickim-potpisom-927-odgovor.xml)
+- [Tip - Error - Response](../code-examples/napojnica-s-elektronickim-potpisom-928-odgovor.xml)
+
+### Echo Method Examples (9.29-9.30)
+- [Echo Method - Request](../code-examples/echo-metoda-929-zahtjev.xml)
+- [Echo Method - Response](../code-examples/echo-metoda-930-odgovor.xml)
+
+### Working Hours (Radno Vrijeme) Examples (9.42-9.57)
+- [Get Working Hours - Request](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-942-zahtjev.xml)
+- [Get Working Hours - Response](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-943-odgovor.xml)
+- [Get Working Hours - Request](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-944-zahtjev.xml)
+- [Get Working Hours - Response](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-945-odgovor.xml)
+- [Delete Working Hours - Request](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-946-zahtjev.xml)
+- [Delete Working Hours - Response](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-947-odgovor.xml)
+- [Delete Working Hours - Request](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-948-zahtjev.xml)
+- [Delete Working Hours - Response](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-949-odgovor.xml)
+- [Report Working Hours - Request](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-950-zahtjev.xml)
+- [Report Working Hours - Response](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-951-odgovor.xml)
+- [Report Working Hours - Request](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-952-zahtjev.xml)
+- [Report Working Hours - Response](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-953-odgovor.xml)
+- [Report Working Hours for List - Request](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-954-zahtjev.xml)
+- [Report Working Hours for List - Response](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-955-odgovor.xml)
+- [Report Working Hours for List - Request](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-956-zahtjev.xml)
+- [Report Working Hours for List - Response](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-957-odgovor.xml)
+
+**For all 57 examples, see the [code-examples directory](../code-examples/).**

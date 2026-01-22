@@ -1,611 +1,115 @@
 # Chapter 6: Primjeri poruka (Message Examples)
 
-**Source:** Pages 134-177 of Technical Specification v2.6
+**Source:** Pages 115-207 of Technical Specification v2.6 (Chapter 9)
 
 ---
 
 ## Overview
 
-Chapter 6 provides complete XML message examples for all fiscalization services. These examples are **production-ready templates** that can be adapted for implementation.
+Chapter 9 provides complete XML message examples for all fiscalization services. These examples are **production-ready templates** that can be adapted for implementation.
 
 ---
 
 ## Complete Message Examples
 
-### 1. Business Space Registration (Poslovni prostor)
+> **All XML examples below are extracted from the official specification (Chapter 9, pages 115-207, examples 9.1-9.57). Each file is transcribed exactly as it appears in the PDF.**
 
-#### Request
+### Example Files Overview
+
+| Example # | Type | Description | Files |
+|-----------|------|-------------|-------|
+| 9.1-9.6 | Račun (Invoice) | Invoice fiscalization and error responses | [racun-izvorni-oblik-91-zahtjev.xml](../code-examples/racun-izvorni-oblik-91-zahtjev.xml) - [racun-greska-s-elektronickim-potpisom-96-odgovor.xml](../code-examples/racun-greska-s-elektronickim-potpisom-96-odgovor.xml) |
+| 9.7-9.14 | Promjena načina plaćanja (Payment method change) | Payment change requests and responses | [promjena-nacina-placanja-izvorni-oblik-97-zahtjev.xml](../code-examples/promjena-nacina-placanja-izvorni-oblik-97-zahtjev.xml) - [promjena-nacina-placanja-s-elektronickim-potpisom-914-odgovor.xml](../code-examples/promjena-nacina-placanja-s-elektronickim-potpisom-914-odgovor.xml) |
+| 9.15-9.20 | Prodaja samoposlužnih uređaja (Self-service) | Self-service device sales | [prodaja-samoposluzni-s-elektronickim-potpisom-915-zahtjev.xml](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-915-zahtjev.xml) - [prodaja-samoposluzni-s-elektronickim-potpisom-920-odgovor.xml](../code-examples/prodaja-samoposluzni-s-elektronickim-potpisom-920-odgovor.xml) |
+| 9.21-9.28 | Napojnica (Tip) | Tip/gratuity fiscalization | [napojnica-s-elektronickim-potpisom-921-zahtjev.xml](../code-examples/napojnica-s-elektronickim-potpisom-921-zahtjev.xml) - [napojnica-s-elektronickim-potpisom-928-odgovor.xml](../code-examples/napojnica-s-elektronickim-potpisom-928-odgovor.xml) |
+| 9.29-9.30 | Echo metoda | Echo method test | [echo-metoda-929-zahtjev.xml](../code-examples/echo-metoda-929-zahtjev.xml) - [echo-metoda-930-odgovor.xml](../code-examples/echo-metoda-930-odgovor.xml) |
+| 9.31-9.34 | Provjera računa (Invoice check) | Invoice verification | [racun-izvorni-oblik-931-zahtjev.xml](../code-examples/racun-izvorni-oblik-931-zahtjev.xml) - [racun-s-elektronickim-potpisom-934-odgovor.xml](../code-examples/racun-s-elektronickim-potpisom-934-odgovor.xml) |
+| 9.35-9.37 | Račun s OIB-om primatelja (Invoice with recipient OIB) | Invoice with recipient data | [racun-s-oib-om-primatelja-935-zahtjev.xml](../code-examples/racun-s-oib-om-primatelja-935-zahtjev.xml) - [racun-s-oib-om-primatelja-937-odgovor.xml](../code-examples/racun-s-oib-om-primatelja-937-odgovor.xml) |
+| 9.38-9.41 | Promjena podataka računa (Change invoice data) | Invoice data modification | [racun-938-zahtjev.xml](../code-examples/racun-938-zahtjev.xml) - [racun-941-odgovor.xml](../code-examples/racun-941-odgovor.xml) |
+| 9.42-9.45 | Dohvat radnog vremena (Get working hours) | Retrieve working hours data | [dohvat-radnog-vremena-s-elektronickim-potpisom-942-zahtjev.xml](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-942-zahtjev.xml) - [dohvat-radnog-vremena-s-elektronickim-potpisom-945-odgovor.xml](../code-examples/dohvat-radnog-vremena-s-elektronickim-potpisom-945-odgovor.xml) |
+| 9.46-9.49 | Brisanje radnog vremena (Delete working hours) | Delete working hours data | [brisanje-radnog-vremena-s-elektronickim-potpisom-946-zahtjev.xml](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-946-zahtjev.xml) - [brisanje-radnog-vremena-s-elektronickim-potpisom-949-odgovor.xml](../code-examples/brisanje-radnog-vremena-s-elektronickim-potpisom-949-odgovor.xml) |
+| 9.50-9.53 | Prijava radnog vremena (Report working hours) | Report working hours data | [prijava-radnog-vremena-s-elektronickim-potpisom-950-zahtjev.xml](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-950-zahtjev.xml) - [prijava-radnog-vremena-s-elektronickim-potpisom-953-odgovor.xml](../code-examples/prijava-radnog-vremena-s-elektronickim-potpisom-953-odgovor.xml) |
+| 9.54-9.57 | Prijava radnih vremena liste poslovnih (Report for list) | Report working hours for business location list | [prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-954-zahtjev.xml](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-954-zahtjev.xml) - [prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-957-odgovor.xml](../code-examples/prijava-radnih-vremena-liste-poslovnih-s-elektronickim-potpisom-957-odgovor.xml) |
+
+### Working with Examples
+
+Each example file contains:
+- Complete SOAP envelope structure
+- Proper XML namespace declarations
+- Request/Response body with schema-compliant elements
+- Digital signature (Signature element) where applicable
+- Example data (test OIBs, timestamps, values)
+
+**Element naming in examples:**
+- Requests end with `Zahtjev` (e.g., `RacunZahtjev`, `PromijeniNacPlacZahtjev`)
+- Responses end with `Odgovor` (e.g., `RacunOdgovor`, `PromijeniNacPlacOdgovor`)
+- Error responses contain `<Greske>` element with error details
+
+**Example request structure:**
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <PoslovniProstor>
-        <Oib>12345678901</Oib>
-        <Naziv>Primjer d.o.o.</Naziv>
-        <Adresa>
-          <Ulica>Ilica 1</Ulica>
-          <KucniBroj>10</KucniBroj>
-          <KucniBrojDodatak></KucniBrojDodatak>
-          <BrojPoste>10000</BrojPoste>
-          <Naselje>Zagreb</Naselje>
-          <Opcina></Opcina>
-        </Adresa>
-
-        <PoslovniProstor>
-          <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-          <VrstaPoslovnogProstova>Prodajno mjesto</VrstaPoslovnogProstora>
-        </PoslovniProstor>
-
-        <DatumPocetkaPrimjene>2025-01-01</DatumPocetkaPrimjene>
-      </PoslovniProstor>
-
-      <SignatureXml>
-        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-          <SignedInfo>
-            <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-            <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256"/>
-            <Reference URI="">
-              <Transforms>
-                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-                <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-              </Transforms>
-              <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-              <DigestValue>BASE64_DIGEST</DigestValue>
-            </Reference>
-          </SignedInfo>
-          <SignatureValue>BASE64_SIGNATURE</SignatureValue>
-          <KeyInfo>
-            <X509Data>
-              <X509Certificate>BASE64_CERT</X509Certificate>
-            </X509Data>
-          </KeyInfo>
-        </Signature>
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://www.apis-it.hr/fin/2012/types/f73">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <tns:RacunZahtjev Id="racunId">
+      <tns:Zaglavlje>
+        <tns:IdPoruke>uuid-here</tns:IdPoruke>
+        <tns:DatumVrijeme>2025-12-08T10:00:00</tns:DatumVrijeme>
+      </tns:Zaglavlje>
+      <tns:Racun>
+        <!-- Invoice data -->
+      </tns:Racun>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <!-- Signature content -->
+      </Signature>
+    </tns:RacunZahtjev>
+  </soapenv:Body>
+</soapenv:Envelope>
 ```
 
-#### Response
+**Example response structure:**
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:00:05+01:00</DatumVrijeme>
-      </Zaglavlje>
-      <Status>OK</Status>
-      <SignatureXml>
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://www.apis-it.hr/fin/2012/types/f73">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <tns:RacunOdgovor Id="responseId">
+      <tns:Zaglavlje>
+        <tns:IdPoruke>uuid-here</tns:IdPoruke>
+        <tns:DatumVrijeme>2025-12-08T10:00:05</tns:DatumVrijeme>
+      </tns:Zaglavlje>
+      <tns:Jir>jir-uuid-here</tns:Jir>
+      <tns:ZastKod>zki-code-here</tns:ZastKod>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
         <!-- Response signature -->
-      </SignatureXml>
-    </FiskalizacijaResponse>
-  </soap:Body>
-</soap:Envelope>
+      </Signature>
+    </tns:RacunOdgovor>
+  </soapenv:Body>
+</soapenv:Envelope>
+```
+
+**Error response structure:**
+```xml
+<tns:RacunOdgovor Id="errorId">
+  <tns:Zaglavlje>
+    <tns:IdPoruke>uuid-here</tns:IdPoruke>
+    <tns:DatumVrijeme>2025-12-08T10:00:05</tns:DatumVrijeme>
+  </tns:Zaglavlje>
+  <tns:Greske>
+    <tns:Greska>
+      <tns:SifraGreske>13</tns:SifraGreske>
+      <tns:PorukaGreske>Error description here</tns:PorukaGreske>
+    </tns:Greska>
+  </tns:Greske>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <!-- Error response signature -->
+  </Signature>
+</tns:RacunOdgovor>
 ```
 
 ---
 
-### 2. Invoice Fiscalization (Fiskalizacija računa)
-
-#### Request
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:05:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <Racun>
-        <Oib>12345678901</Oib>
-        <OznakaSlijeda>P</OznakaSlijeda>
-        <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-        <BrRacuna>1/2025</BrRacuna>
-        <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-
-        <NaciniPlacanja>
-          <NacinPlacanja>
-            <Naziv>G</Naziv>
-            <Iznos>126.00</Iznos>
-          </NacinPlacanja>
-        </NaciniPlacanja>
-
-        <IznosUkupno>126.00</IznosUkupno>
-
-        <UkupnoPorez>
-          <Porez>
-            <Naziv>PDV</Naziv>
-            <Stopa>25.00</Stopa>
-            <Osnovica>100.80</Osnovica>
-            <Iznos>25.20</Iznos>
-          </Porez>
-        </UkupnoPorez>
-      </Racun>
-
-      <SignatureXml>
-        <!-- Signature -->
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
-```
-
-#### Response
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:05:02+01:00</DatumVrijeme>
-      </Zaglavlje>
-      <JIR>1234567890123456789012345678901234</JIR>
-      <SignatureXml>
-        <!-- Response signature -->
-      </SignatureXml>
-    </FiskalizacijaResponse>
-  </soap:Body>
-</soap:Envelope>
-```
-
----
-
-### 3. Payment Method Change (Promjena načina plaćanja)
-
-#### Request
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:10:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <PromjenaNacinaPlacanja>
-        <Oib>12345678901</Oib>
-        <OznakaSlijeda>P</OznakaSlijeda>
-        <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-        <BrRacuna>1/2025</BrRacuna>
-        <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-        <IznosUkupno>126.00</IznosUkupno>
-
-        <NaciniPlacanja>
-          <NacinPlacanja>
-            <Naziv>K</Naziv>
-            <Iznos>126.00</Iznos>
-          </NacinPlacanja>
-        </NaciniPlacanja>
-      </PromjenaNacinaPlacanja>
-
-      <SignatureXml>
-        <!-- Signature -->
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
-```
-
-#### Response
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:10:02+01:00</DatumVrijeme>
-      </Zaglavlje>
-      <Status>OK</Status>
-      <SignatureXml>
-        <!-- Response signature -->
-      </SignatureXml>
-    </FiskalizacijaResponse>
-  </soap:Body>
-</soap:Envelope>
-```
-
----
-
-### 4. ISSN Fiscalization
-
-#### Request
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:15:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <Racun>
-        <Oib>12345678901</Oib>
-        <OznakaSlijeda>P</OznakaSlijeda>
-        <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-        <BrRacuna>ISSN-1/2025</BrRacuna>
-        <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-
-        <NaciniPlacanja>
-          <NacinPlacanja>
-            <Naziv>G</Naziv>
-            <Iznos>100.00</Iznos>
-          </NacinPlacanja>
-        </NaciniPlacanja>
-
-        <IznosUkupno>100.00</IznosUkupno>
-
-        <UkupnoPorez>
-          <Porez>
-            <Naziv>PDV</Naziv>
-            <Stopa>25.00</Stopa>
-            <Osnovica>80.00</Osnovica>
-            <Iznos>20.00</Iznos>
-          </Porez>
-        </UkupnoPorez>
-
-        <ISSN>123456789012345</ISSN>
-      </Racun>
-
-      <SignatureXml>
-        <!-- Signature -->
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
-```
-
-#### Response
-Returns JIR (same as regular invoice fiscalization)
-
----
-
-### 5. Invoice Report (Izvješće o izdanom računu)
-
-#### Request
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:20:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <IzvjesceOIzdanomRacunu>
-        <Oib>12345678901</Oib>
-        <OznakaSlijeda>P</OznakaSlijeda>
-        <BrojOznakaSlijeda>1</BrojOznakaSlijeda>
-        <BrRacuna>1/2025</BrRacuna>
-        <DatumVrijeme>2025-12-08T10:00:00+01:00</DatumVrijeme>
-        <IznosUkupno>126.00</IznosUkupno>
-
-        <TipIzvjesca>PO</TipIzvjesca>
-        <DatumVrijemeIzdavanja>2025-12-08T10:00:00+01:00</DatumVrijemeIzdavanja>
-        <OibPoslovneJedinice>12345678901</OibPoslovneJedinice>
-        <NacinPlacanja>G</NacinPlacanja>
-      </IzvjesceOIzdanomRacunu>
-
-      <SignatureXml>
-        <!-- Signature -->
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
-```
-
-#### Response
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:20:02+01:00</DatumVrijeme>
-      </Zaglavlje>
-      <Status>OK</Status>
-      <SignatureXml>
-        <!-- Response signature -->
-      </SignatureXml>
-    </FiskalizacijaResponse>
-  </soap:Body>
-</soap:Envelope>
-```
-
----
-
-### 6. Working Hours Report (Provjera radnog vremena)
-
-#### Report Request
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T11:00:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <PrijaviRadnoVrijemeZaPoslovniceParams>
-        <Oib>12345678901</Oib>
-        <DatumOd>2025-01-01</DatumOd>
-        <DatumDo>2025-12-31</DatumDo>
-
-        <RadnoVrijemePoslovnice>
-          <OibPoslovnice>12345678901</OibPoslovnice>
-          <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-
-          <RadnoVrijeme>
-            <Dan>Ponedjeljak</Dan>
-            <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-            <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-          </RadnoVrijeme>
-
-          <RadnoVrijeme>
-            <Dan>Utorak</Dan>
-            <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-            <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-          </RadnoVrijeme>
-
-          <RadnoVrijeme>
-            <Dan>Srijeda</Dan>
-            <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-            <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-          </RadnoVrijeme>
-
-          <RadnoVrijeme>
-            <Dan>Cetvrtak</Dan>
-            <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-            <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-          </RadnoVrijeme>
-
-          <RadnoVrijeme>
-            <Dan>Petak</Dan>
-            <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-            <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-          </RadnoVrijeme>
-        </RadnoVrijemePoslovnice>
-      </PrijaviRadnoVrijemeZaPoslovniceParams>
-
-      <SignatureXml>
-        <!-- Signature -->
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
-```
-
-#### Query Request
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T11:05:00+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <DohvatiRadnoVrijemeParams>
-        <Oib>12345678901</Oib>
-        <OibPoslovnice>12345678901</OibPoslovnice>
-        <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-        <Datum>2025-12-08</Datum>
-      </DohvatiRadnoVrijemeParams>
-
-      <SignatureXml>
-        <!-- Signature -->
-      </SignatureXml>
-    </FiskalizacijaRequest>
-  </soap:Body>
-</soap:Envelope>
-```
-
-#### Response
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T11:05:02+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <RadnoVrijemePoslovnice>
-        <OibPoslovnice>12345678901</OibPoslovnice>
-        <OznakaPoslovnogProstora>1</OznakaPoslovnogProstora>
-
-        <RadnoVrijeme>
-          <Dan>Ponedjeljak</Dan>
-          <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-          <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-        </RadnoVrijeme>
-
-        <RadnoVrijeme>
-          <Dan>Utorak</Dan>
-          <PocetakRadnogVremena>08:00:00</PocetakRadnogVremena>
-          <KrajRadnogVremena>16:00:00</KrajRadnogVremena>
-        </RadnoVrijeme>
-      </RadnoVrijemePoslovnice>
-
-      <SignatureXml>
-        <!-- Response signature -->
-      </SignatureXml>
-    </FiskalizacijaResponse>
-  </soap:Body>
-</soap:Envelope>
-```
-
----
-
-## Error Response Examples
-
-### Validation Error (Error 13)
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
-      <Zaglavlje>
-        <IdPoslovnogProstora>1</IdPoslovnogProstora>
-        <Oib>12345678901</Oib>
-        <DatumVrijeme>2025-12-08T10:05:02+01:00</DatumVrijeme>
-      </Zaglavlje>
-
-      <Greske>
-        <Greska>
-          <SifraGreske>13</SifraGreske>
-          <PorukaGreske>Greška u validaciji podataka</PorukaGreske>
-        </Greska>
-      </Greske>
-
-      <SignatureXml>
-        <!-- Response signature -->
-      </SignatureXml>
-    </FiskalizacijaResponse>
-  </soap:Body>
-</soap:Envelope>
-```
-
-### Signature Error (Error 14)
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <Greske>
-    <Greska>
-      <SifraGreske>14</SifraGreske>
-      <PorukaGreske>Neispravan digitalni potpis</PorukaGreske>
-    </Greska>
-  </Greske>
-</FiskalizacijaResponse>
-```
-
-### Time Synchronization Error (Error 178)
-```xml
-<FiskalizacijaResponse>
-  <Zaglavlje>...</Zaglavlje>
-  <Greske>
-    <Greska>
-      <SifraGreske>178</SifraGreske>
-      <PorukaGreske>Vremenska razlika je veća od dozvoljene</PorukaGreske>
-    </Greska>
-  </Greske>
-</FiskalizacijaResponse>
-```
-
----
-
-## SOAP Fault Examples
-
-### Malformed XML
-```xml
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <soap:Fault>
-      <faultcode>soap:Client</faultcode>
-      <faultstring>Malformed XML request</faultstring>
-      <detail>
-        <error>XML parsing error at line 15, column 8</error>
-      </detail>
-    </soap:Fault>
-  </soap:Body>
-</soap:Envelope>
-```
-
-### Invalid SOAP Action
-```xml
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <soap:Fault>
-      <faultcode>soap:Client</faultcode>
-      <faultstring>Invalid SOAP action</faultstring>
-      <detail>
-        <error>SOAP action 'UnknownAction' not recognized</error>
-      </detail>
-    </soap:Fault>
-  </soap:Body>
-</soap:Envelope>
-```
-
----
-
-## Key Implementation Notes
-
-### 1. Signature Element Placement
-- SignatureXml MUST be the last element in FiskalizacijaRequest
-- Signature is computed BEFORE adding to SOAP envelope
-- SOAP envelope wrapping is the FINAL step
-
-### 2. Time Format
-- Always include timezone: `+01:00` or `+02:00`
-- Use NTP sync to ensure accuracy
-- Format: `YYYY-MM-DDTHH:MM:SS±HH:MM`
-
-### 3. Namespace Handling
-- Main namespace: `http://fiskalizacija.porezna.uprava.hr/2013/schema`
-- Signature namespace: `http://www.w3.org/2000/09/xmldsig#`
-- SOAP namespace: `http://schemas.xmlsoap.org/soap/envelope/`
-
-### 4. Decimal Formatting
-- Use decimal point: `100.50` (NOT comma)
-- Two decimal places for amounts: `100.00`
-- Tax rates: Two decimal places: `25.00`
-
-### 5. Character Encoding
-- Always specify: `<?xml version="1.0" encoding="utf-8"?>`
-- Use UTF-8 for all special characters (Č, Ć, Ž, Š, Đ)
-
----
-
-## Testing with Examples
-
-### Using Test Environment
-1. Replace OIB with test OIB
-2. Use test certificate
-3. Point to: `https://cistest.apis-it.hr:8449/FiskalizacijaServiceTest`
-4. Verify response structure matches examples
-
-### Validation Checklist
-- [ ] All required fields present
-- [ ] Correct XML namespaces
-- [ ] Valid signature
-- [ ] Correct time format
-- [ ] OIB matches certificate
-- [ ] Decimal formatting correct
-- [ ] UTF-8 encoding used
-
----
-
-## Implementation Notes
+## Implementation Guidelines
 
 These examples are reference templates from the official specification. When implementing:
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<soapenv:Envelope  xmlns:tns ="http://www.apis-it.hr/fin/2012/types/f73 " 
+xmlns:soapenv ="http://schemas.xmlsoap.org/soap/envelope/ "><soapenv:Header /> 
+<soapenv:Body> 
+<tns:PromijeniNacPlacZahtjev> 
+<tns:Zaglavlje> 
+<tns:IdPoruke>261d82bf-3628-45ef-85c4-8d679d48785d </tns:IdPoruke> 
+<tns:DatumVrijeme>25.11.2021T13:44:58 </tns:DatumVrijeme> 
+</tns:Zaglavlje> 
+<tns:Racun> 
+<tns:Oib>02994650199 </tns:Oib> 
+<tns:USustPdv>false</tns:USustPdv> 
+<tns:DatVrijeme>24.11.2021T19:23:53 </tns:DatVrijeme> 
+<tns:OznSlijed>P</tns:OznSlijed> 
+<tns:BrRac> 
+<tns:BrOznRac>562860 </tns:BrOznRac> 
+<tns:OznPosPr>POSL1</tns:OznPosPr> 
+<tns:OznNapUr>12</tns:OznNapUr> 
+</tns:BrRac> 
+<tns:IznosUkupno>2744.98 </tns:IznosUkupno> 
+<tns:NacinPlac>G</tns:NacinPlac> 
+<tns:OibOper>01234567890 </tns:OibOper> 
+<tns:ZastKod>cb6bc77fbe9c74292aeb8e30db4f6e9a </tns:ZastKod> 
+<tns:NakDost>false</tns:NakDost> 
+<tns:PromijenjeniNacinPlac>K</tns:PromijenjeniNacinPlac> 
+</tns:Racun> 
+</tns:PromijeniNacPlacZahtjev> 
+</soapenv:Body> 
+</soapenv:Envelope>

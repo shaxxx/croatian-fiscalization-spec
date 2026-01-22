@@ -1,0 +1,76 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:f73="http://www.apis-
+it.hr/fin/2012/types/f73" xmlns:xd="http://www.w3.org/2000/09/xmldsig#"> 
+<soapenv:Header/> 
+<soapenv:Body> 
+<f73:DohvatiRadnoVrijemeZahtjev Id="racunId"> 
+<f73:Zaglavlje> 
+<f73:IdPoruke>6e54495b-fb64-424c-ace4-de496363d9a8</f73:IdPoruke> 
+<f73:DatumVrijeme>08.12.2025T13:47:43</f73:DatumVrijeme> 
+</f73:Zaglavlje> 
+<f73:Oib>02994650199</f73:Oib> 
+<f73:OznPosPr>MOJTESTPOSLZ00000001</f73:OznPosPr> 
+<f73:VrstaRadnogVremena>SVE</f73:VrstaRadnogVremena> 
+<f73:OibOper>74876474625</f73:OibOper> 
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+<SignedInfo> 
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/> 
+<Reference URI="#racunId"> 
+<Transforms> 
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+</Transforms> 
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+<DigestValue>gmuhqaB9AdPl2SzlhA+HQVExnzQ=</DigestValue> 
+</Reference> 
+</SignedInfo> 
+<SignatureValue>NUllSfHqAf6C8PiKVNy/jvL+o7EtGP5j/vq01/nw4XKPxq3DnHFpBPZD0v48poC
+jpE3bHF3GfEzE 
+nD2/DUEGUJjgQd3GnIJs7NC1Jz5gOhrT1rdxpzsH3KkMpGZa3DH8cUnTLVKomDqXyxYtU1TVojyF 
+BDP8echighWl+TJPT0DWnNIcUzybVlEXxufNxVWO8eRtMk7Gn07W/2XSjUOzPz3sd0nWmsNn6ecm 
+BI99A5j47S1wd0nEn5uYYcaiAG36N9zm8bol/3XjrG4wIdmrNuegMIhXsp0M+WH4X4hkQH9PRiMY 
+GpTW8p58zLKt95e6CvFkytBsk+OFYgf8Nm7QTQ==</SignatureValue> 
+<KeyInfo> 
+<X509Data> 
+<X509Certificate>MIIGjzCCBHegAwIBAgIQVMN+ETtXRMMAAAAAXyRDJDANBgkqhkiG9w0BAQsFAD
+BIMQswCQYDVQQG 
+EwJIUjEdMBsGA1UEChMURmluYW5jaWpza2EgYWdlbmNpamExGjAYBgNVBAMTEUZpbmEgRGVtbyBD 
+QSAyMDIwMB4XDTIxMTAxOTA4MjY1NloXDTI2MTAxOTA4MjY1NlowWDELMAkGA1UEBhMCSFIxJTAj 
+BgNVBAoTHEFQSVMgSVQgRC5PLk8uIEhSMDI5OTQ2NTAxOTkxDzANBgNVBAcTBlpBR1JFQjERMA8G 
+A1UEAxMIRklTS0FMIDMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCnVrIj9eExiFKX 
+TB/t6eMBcb6IqzgmHMrJ6L5r5bUbcg7clP1OTfrOItMyUf2cVAl7B3gjS7rE1Y4LcnApYbx2Mzhf 
+wi/ogmruJpdox32J8LG/1GmOW96Q9zJ/BlqLBrOBAmQ1i69QonilnbwQWi+XKqMRAqtNkJud6G44 
+04kWiDgdXT6obZshJQaimG4dVd/bBxliGNKPg9nK6ZI2Ng4Vy075ajRe3bq8NseNhlCLB26UL1WS 
+hkDNpGYTiN8K8Xyx7JFNpytC3ufS5PhPM8TLjJUYARrACC/CxHulWavJd4qVM/8ZYlORhJbBuc1d 
+jjpyGsqVgYq5LED51jSCdV8XAgMBAAGjggJjMIICXzAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw 
+FAYIKwYBBQUHAwQGCCsGAQUFBwMCMIGsBgNVHSAEgaQwgaEwgZQGCSt8iFAFIQ8DATCBhjBBBggr 
+BgEFBQcCARY1aHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3BzL2Nwc25xY2RlbW8yMDE0djItMC1o 
+ci5wZGYwQQYIKwYBBQUHAgEWNWh0dHA6Ly9kZW1vLXBraS5maW5hLmhyL2Nwcy9jcHNucWNkZW1v 
+MjAxNHYyLTAtZW4ucGRmMAgGBgQAj3oBATB9BggrBgEFBQcBAQRxMG8wKAYIKwYBBQUHMAGGHGh0 
+dHA6Ly9kZW1vMjAxNC1vY3NwLmZpbmEuaHIwQwYIKwYBBQUHMAKGN2h0dHA6Ly9kZW1vLXBraS5m 
+aW5hLmhyL2NlcnRpZmlrYXRpL2RlbW8yMDIwX3N1Yl9jYS5jZXIwgbQGA1UdHwSBrDCBqTCBpqCB 
+o6CBoIYoaHR0cDovL2RlbW8tcGtpLmZpbmEuaHIvY3JsL2RlbW8yMDIwLmNybIZ0bGRhcDovL2Rl 
+bW8tbGRhcC5maW5hLmhyL2NuPUZpbmElMjBEZW1vJTIwQ0ElMjAyMDIwLG89RmluYW5jaWpza2El 
+MjBhZ2VuY2lqYSxjPUhSP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3QlM0JiaW5hcnkwHwYDVR0j 
+BBgwFoAUla9S1cLp1zeEPm5Jj8kf6lwrX88wHQYDVR0OBBYEFHbh5aGV7SnN828H+8jZ/1kRMgkm 
+MAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggIBAGZLzwPNAnhYAESsDRLdnZ/7a7uoKLOTh0hN 
+UgqESGOkB8xcuQFHHKLwQlmFdv+/2i3WPT4aXg0PNPFIlNLABIlnZEJfhpAsnswCBcZfBMTFqmOU 
+lJkQIghSSVHm7yC2eJBiB9x/PnZQzd2FteHOprT5exd2wvHIhQEtmLDpI+hDNv6zvBxrRcz6aT4v 
+5KfmkP5O4z1jj5y4Ug5Su7TX2KpT/zRNPPPQXsqg+dS+6C+FJFG7UFRHEMSvAc2BFDm+T8UXUIXE 
+61jSOj/Dw1g2mSSdJFLNrB8T0hWaj7EX32sEd0KGQJmBsK4hMiUmV96ZmJFcJksiuwPcAbXLdvJt 
+8R6T9KuVsxMBKt7QVYFd723o2hiPTCbc/2LrwAIpAIsinlOi238SyNvVqvsuRVe8EWKZo+KV9JZ9 
+IQksz/vXNehGt/f4NCfGqZZiWndbp1DewISSLifqlKyGzghC49jwUu03HD86RRFYw6l6BNf0s9s2 
+YyppEndTCJWruaX+YYEYxulVBY0E4hohidwWBCGg4wWKWEUYBnHuzaSTEzx6KQUZtRoxuISPGujE 
+6fwb4oSExQ3FcURRszb+kwajXiptZk1kJrbF5GBYeGq74mFRth+pRaoEWWdGzz38Az6GXD+dg9Fh 
+qCvj6Z5PzH80VoVso9YQVauOWavRdfIgDIxLenNx</X509Certificate> 
+<X509IssuerSerial> 
+<X509IssuerName>CN=Fina Demo CA 2020,O=Financijska 
+agencija,C=HR</X509IssuerName> 
+<X509SerialNumber>112670206482201164408252157595450884900</X509SerialNumber> 
+</X509IssuerSerial> 
+</X509Data> 
+</KeyInfo> 
+</Signature> 
+</f73:DohvatiRadnoVrijemeZahtjev> 
+</soapenv:Body> 
+</soapenv:Envelope>

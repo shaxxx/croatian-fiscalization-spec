@@ -21,6 +21,8 @@ CIS provides the following fiscalization services:
 
 ## Common Service Structure
 
+> **Note:** The examples below use `FiskalizacijaRequest` and `FiskalizacijaResponse` as **abstract placeholders** to illustrate the common structure shared by all services. Actual XML uses specific element names such as `RacunZahtjev`, `PromijeniNacPlacZahtjev`, `RacunOdgovor`, etc.
+
 ### Request Format
 
 All services follow this request structure:
@@ -28,7 +30,8 @@ All services follow this request structure:
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
-    <FiskalizacijaRequest xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
+    <!-- Abstract: In actual XML, this is RacunZahtjev, PromijeniNacPlacZahtjev, etc. -->
+    <FiskalizacijaRequest xmlns="http://www.apis-it.hr/fin/2012/types/f73">
       <Zaglavlje>
         <IdPoslovnogProstora>...</IdPoslovnogProstora>
         <Oib>...</Oib>
@@ -60,7 +63,8 @@ All services follow this response structure:
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
-    <FiskalizacijaResponse xmlns="http://fiskalizacija.porezna.uprava.hr/2013/schema">
+    <!-- Abstract: In actual XML, this is RacunOdgovor, PromijeniNacPlacOdgovor, etc. -->
+    <FiskalizacijaResponse xmlns="http://www.apis-it.hr/fin/2012/types/f73">
       <Zaglavlje>
         <IdPoslovnogProstora>...</IdPoslovnogProstora>
         <Oib>...</Oib>
@@ -86,6 +90,7 @@ All services follow this response structure:
 ### Error Response
 
 ```xml
+<!-- Abstract placeholder - actual response types vary by service -->
 <FiskalizacijaResponse>
   <Zaglavlje>...</Zaglavlje>
   <Greske>
@@ -104,13 +109,13 @@ All services follow this response structure:
 ### Production Environment
 ```
 URL: https://cis.porezna-uprava.hr:8449/FiskalizacijaService
-Action: http://fiskalizacija.porezna.uprava.hr/2013/FiskalizacijaService/{Operation}
+Action: http://www.apis-it.hr/fin/2012/types/f73/FiskalizacijaService/{Operation}
 ```
 
 ### Test Environment
 ```
 URL: https://cistest.apis-it.hr:8449/FiskalizacijaServiceTest
-Action: http://fiskalizacija.porezna.uprava.hr/2013/FiskalizacijaServiceTest/{Operation}
+Action: http://www.apis-it.hr/fin/2012/types/f73/FiskalizacijaServiceTest/{Operation}
 ```
 
 ### SOAP Actions
