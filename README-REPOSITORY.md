@@ -9,7 +9,7 @@ This documentation is now **self-contained** and **ready for a separate public r
 ### Core Documentation Files (in `technical-specification/`)
 - ✅ 8 markdown documentation files
 - ✅ 9 Mermaid flow diagrams
-- ✅ 7 XML code examples
+- ✅ 57 XML code examples (from Chapter 9)
 
 ### Repository Management Files (root level)
 - ✅ **VERSION.md** - Version tracking
@@ -93,14 +93,13 @@ technical-specification/
 │       ├── flow-signature-soap.mermaid
 │       └── flow-signature-verification.mermaid
 │
-└── code-examples/
-    ├── xml-business-space.xml
-    ├── xml-header-timezone.xml
-    ├── xml-invoice-fiscalization.xml
-    ├── xml-invoice-report.xml
-    ├── xml-issn-fiscalization.xml
-    ├── xml-namespace-declarations.xml
-    └── xml-payment-change.xml
+└── code-examples/                        # 57 XML examples from Chapter 9
+    ├── racun-*.xml                        # Invoice examples (9.1-9.6, 9.31-9.37, 9.38-9.41)
+    ├── promjena-nacina-placanja-*.xml      # Payment change examples (9.7-9.14)
+    ├── prodaja-samoposluzni-*.xml         # Self-service examples (9.15-9.20)
+    ├── napojnica-*.xml                    # Tip/gratuity examples (9.21-9.28)
+    ├── echo-metoda-*.xml                  # Echo method examples (9.29-9.30)
+    └── radnog-vremena-*.xml               # Working hours examples (9.42-9.57)
 ```
 
 ---
@@ -202,7 +201,7 @@ git push
 | Markdown Files | 8 (docs/) |
 | Supporting Files | 9 (VERSION, guides, LICENSE, scripts, READMEs) |
 | Mermaid Diagrams | 9 |
-| XML Examples | 7 |
+| XML Examples | 57 |
 | Total Pages Source | 177 |
 | Automation Scripts | 2 |
 | Lines of Documentation | ~3000+ |

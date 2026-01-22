@@ -27,14 +27,13 @@ technical-specification/
 │       ├── flow-signature-creation.mermaid
 │       ├── flow-signature-soap.mermaid
 │       └── flow-signature-verification.mermaid
-└── code-examples/                         # XML code examples
-    ├── xml-business-space.xml
-    ├── xml-header-timezone.xml
-    ├── xml-invoice-fiscalization.xml
-    ├── xml-invoice-report.xml
-    ├── xml-issn-fiscalization.xml
-    ├── xml-namespace-declarations.xml
-    └── xml-payment-change.xml
+└── code-examples/                         # 57 XML examples from Chapter 9
+    ├── racun-*.xml                        # Invoice examples (9.1-9.6, 9.31-9.37, 9.38-9.41)
+    ├── promjena-nacina-placanja-*.xml      # Payment change examples (9.7-9.14)
+    ├── prodaja-samoposluzni-*.xml         # Self-service examples (9.15-9.20)
+    ├── napojnica-*.xml                    # Tip/gratuity examples (9.21-9.28)
+    ├── echo-metoda-*.xml                  # Echo method examples (9.29-9.30)
+    └── radnog-vremena-*.xml               # Working hours examples (9.42-9.57)
 ```
 
 ---
@@ -153,19 +152,24 @@ All diagrams are in [Mermaid](https://mermaid.js.org/) format and can be viewed 
 
 ## 💻 Code Examples
 
-XML examples are located in [`code-examples/`](code-examples/):
+XML examples are located in [`code-examples/`](code-examples/).
 
-| Example | Description |
-|---------|-------------|
-| `xml-namespace-declarations.xml` | Namespace declarations template |
-| `xml-header-timezone.xml` | Header with timezone format |
-| `xml-business-space.xml` | Business space registration |
-| `xml-invoice-fiscalization.xml` | Invoice fiscalization request |
-| `xml-payment-change.xml` | Payment method change request |
-| `xml-issn-fiscalization.xml` | ISSN fiscalization request |
-| `xml-invoice-report.xml` | Invoice report request |
+**57 complete XML examples** transcribed from the official specification (Chapter 9, examples 9.1-9.57):
 
-These examples are **production-ready templates** that can be adapted for your implementation.
+### Example Categories
+
+| Category | Examples | Files |
+|----------|----------|-------|
+| **Invoice (Racun)** | 9.1-9.6, 9.31-9.37, 9.38-9.41 | `racun-*.xml` |
+| **Payment Change (Promjena načina plaćanja)** | 9.7-9.14 | `promjena-nacina-placanja-*.xml` |
+| **Self-Service (Prodaja samoposlužnih uređaja)** | 9.15-9.20 | `prodaja-samoposluzni-*.xml` |
+| **Tip/Gratuity (Napojnica)** | 9.21-9.28 | `napojnica-*.xml` |
+| **Echo Method** | 9.29-9.30 | `echo-metoda-*.xml` |
+| **Working Hours (Radno vrijeme)** | 9.42-9.57 | `dohvat-radnog-vremena-*.xml`, `brisanje-radnog-vremena-*.xml`, `prijava-radnog-vremena-*.xml`, `prijava-radnih-vremena-liste-poslovnih-*.xml` |
+
+These examples are **production-ready templates** that can be adapted for your implementation. Each file contains complete SOAP envelopes with proper structure, signatures, and example data.
+
+For detailed documentation of each example, see [Message Examples](docs/12-message-examples.md).
 
 ---
 

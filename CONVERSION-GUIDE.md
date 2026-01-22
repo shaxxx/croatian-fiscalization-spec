@@ -26,7 +26,7 @@ This guide describes the **exact, repeatable process** for converting the Croati
 ### What Gets Extracted
 
 - ✅ All chapter content (6 chapters)
-- ✅ XML code examples (8 examples)
+- ✅ XML code examples (57 examples from Chapter 9)
 - ✅ Flow diagrams (9 diagrams → Mermaid)
 - ❌ XML schema visualizations (ignored per requirements)
 
@@ -59,26 +59,16 @@ technical-specification/
 │       ├── flow-signature-creation.mermaid
 │       ├── flow-signature-soap.mermaid
 │       └── flow-signature-verification.mermaid
-└── code-examples/                       # XML code examples
-    ├── xml-business-space.xml
-    ├── xml-header-timezone.xml
-    ├── xml-invoice-fiscalization.xml
-    ├── xml-invoice-report.xml
-    ├── xml-issn-fiscalization.xml
-    ├── xml-namespace-declarations.xml
-    └── xml-payment-change.xml
+└── code-examples/                       # 57 XML examples from Chapter 9
+    ├── racun-*.xml                        # Invoice examples (9.1-9.6, 9.31-9.37, 9.38-9.41)
+    ├── promjena-nacina-placanja-*.xml      # Payment change examples (9.7-9.14)
+    ├── prodaja-samoposluzni-*.xml         # Self-service examples (9.15-9.20)
+    ├── napojnica-*.xml                    # Tip/gratuity examples (9.21-9.28)
+    ├── echo-metoda-*.xml                  # Echo method examples (9.29-9.30)
+    └── radnog-vremena-*.xml               # Working hours examples (9.42-9.57)
 ```
 
 ---
-└── code-examples/
-    ├── xml-business-space.xml
-    ├── xml-header-timezone.xml
-    ├── xml-invoice-fiscalization.xml
-    ├── xml-invoice-report.xml
-    ├── xml-issn-fiscalization.xml
-    ├── xml-namespace-declarations.xml
-    └── xml-payment-change.xml
-```
 
 ---
 
@@ -161,51 +151,257 @@ technical-specification/
 
 ---
 
-### Step 3: Extract Code Examples
+### Step 3: Extract Code Examples from Chapter 9
 
-**Objective:** Extract all XML code examples AS-IS (no optimization).
+**Objective:** Extract all XML code examples from Chapter 9 (pages 115-207) AS-IS with no conversions or optimizations.
 
-**Process:**
+**CRITICAL REQUIREMENTS:**
+- ⚠️ Copy examples EXACTLY as they appear in the PDF
+- ⚠️ NO character encoding conversions (keep Croatian characters: č, ć, š, ž, đ)
+- ⚠️ NO formatting changes or prettification
+- ⚠️ NO refactoring or optimization
+- ⚠️ Preserve ALL original line breaks and spacing
+- ⚠️ These are REFERENCE EXAMPLES from official specification
 
-For each code example image in the PDF:
+---
 
-1. **Identify the example:**
-   - Page number
-   - Type (namespace, header, business space, etc.)
-   - Context
+### 3.1 Locate Chapter 9 Examples
 
-2. **Extract XML content:**
-   - Copy EXACTLY as shown in PDF
-   - Preserve ALL formatting
-   - Keep Croatian comments
-   - Do NOT refactor or optimize
-   - These are reference examples, not production code
+**Location:** Pages 115-207 of Technical Specification v2.6
 
-3. **Create XML file:**
-   - Name: `xml-{entity-name}.xml`
-   - Add descriptive comment header
-   - Include page reference
+**Structure:**
+- Chapter 9 contains 57 complete XML message examples
+- Each example is numbered: 9.1, 9.2, 9.3, ... 9.57
+- Examples are in sequential order
 
-4. **Standard header format:**
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <!-- [Description] -->
-   <!-- Source: Page [N] of Technical Specification v[X.Y] -->
-   ```
+**Example Numbering System:**
+- `9.1` = First example in Chapter 9
+- `9.2` = Second example in Chapter 9
+- `9.57` = Fifty-seventh (last) example in Chapter 9
+- The number after the dot (.) indicates the sequence within Chapter 9
 
-**Code Examples to Extract:**
+---
 
-| # | Page | Description | Filename |
-|---|------|-------------|----------|
-| 1 | 10 | Namespace declarations | `xml-namespace-declarations.xml` |
-| 2 | 12 | Header with timezone | `xml-header-timezone.xml` |
-| 3 | 16 | Business space registration | `xml-business-space.xml` |
-| 4 | 20 | Invoice fiscalization | `xml-invoice-fiscalization.xml` |
-| 5 | 24 | Payment method change | `xml-payment-change.xml` |
-| 6 | 32 | ISSN fiscalization | `xml-issn-fiscalization.xml` |
-| 7 | 35 | Invoice report | `xml-invoice-report.xml` |
+### 3.2 Extraction Process - Step by Step
 
-**Output:** 7 XML files in `code-examples/` directory.
+#### Phase 1: Extract All Examples to Single File
+
+1. **Read the PDF** pages 115-207 (Chapter 9)
+2. **Extract ALL text** containing XML examples to a single temporary file
+3. **DO NOT** try to identify individual examples yet
+4. **DO NOT** clean or modify content during extraction
+
+#### Phase 2: Locate Example Boundaries
+
+Each example starts with a **title/heading line** in Croatian, followed by XML content.
+
+**How to identify example start:**
+1. Look for lines like: `9.1`, `9.2`, `9.3`, etc.
+2. The title is on the same or next line after the number
+3. Title format: `9.X [Croatian description]`
+4. Examples contain XML with `<soap:Envelope>` or `<soapenv:Envelope>`
+
+**Example titles (for reference):**
+- `9.1` - Račun - izvorni oblik - zahtjev
+- `9.2` - Račun - s elektroničkim potpisom - zahtjev
+- `9.3` - Račun - izvorni oblik - odgovor
+- ...and so on through 9.57
+
+#### Phase 3: Process Each Example
+
+For each example found:
+
+**Step 3.1: Extract XML Content**
+
+1. Find the opening SOAP element:
+   - `<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">` OR
+   - `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">`
+
+2. Find the closing SOAP element:
+   - `</soap:Envelope>` OR
+   - `</soapenv:Envelope>`
+   - NOTE: May have trailing space like `</soapenv:Envelope >`
+
+3. Extract EVERYTHING from opening to closing tag (inclusive)
+
+**Step 3.2: Clean the XML**
+
+Apply these cleaning steps IN ORDER:
+
+1. **Remove page markers** (if present):
+   - Lines containing: `--- PAGE XXX ---`
+   - Lines containing: `Stranica XXX od XXX`
+   - Use regex or string replacement
+
+2. **Remove empty/whitespace-only lines**:
+   - Lines that contain only spaces, tabs, or are empty
+   - Keep lines with XML content even if just a tag
+
+3. **Trim leading whitespace from each line**:
+   - Remove spaces/tabs at the START of each line
+   - Do NOT remove trailing spaces (they might be intentional)
+   - Do NOT remove spaces between XML elements and text content
+
+4. **Trim spaces in element names ONLY**:
+   - Inside opening tags: `< Racun >` → `<Racun>`
+   - Inside closing tags: `</Racun >` → `</Racun>`
+   - DO NOT trim spaces in element VALUES or attributes
+   - Use regex pattern: `<\s*(/\s*)([^\s>]+)(\s*)>` → `<\1\2>`
+
+**Step 3.3: Handle XML Declaration**
+
+If `<?xml version="1.0" encoding="UTF-8"?>` is present:
+- Keep it at the very top of the file
+- If multiple examples have it, each file gets its own
+- If NOT present in the example, DO NOT add it
+
+**Step 3.4: Remove Non-XML Lines**
+
+Remove lines that are NOT part of the XML structure:
+- Title/description lines BEFORE the XML starts
+- Explanatory text AFTER the XML ends
+- Page numbers, section headers
+- Keep ONLY the SOAP envelope and its contents
+
+#### Phase 4: Generate Filename
+
+**Filename Pattern:**
+```
+{croatian-description}-{example-number}-{direction}.xml
+```
+
+**Components:**
+
+1. **{croatian-description}:** Extract from example title
+   - Convert to lowercase
+   - Replace spaces with hyphens
+   - Keep Croatian characters (č, ć, š, ž, đ)
+   - Examples:
+     - "Račun - izvorni oblik" → `racun-izvorni-oblik`
+     - "Promjena načina plaćanja" → `promjena-nacina-placanja`
+     - "Napojnica" → `napojnica`
+
+2. **{example-number}:** The number from 9.X
+   - Extract the number after the dot
+   - Examples: `91`, `92`, `93`, ... `957`
+
+3. **{direction}:** From the title
+   - `zahtjev` = Request
+   - `odgovor` = Response
+   - This is ALWAYS in the title
+
+**Filename Examples:**
+- Example 9.1 (Račun - izvorni oblik - zahtjev) → `racun-izvorni-oblik-91-zahtjev.xml`
+- Example 9.2 (Račun - s elektroničkim potpisom - zahtjev) → `racun-s-elektronickim-potpisom-92-zahtjev.xml`
+- Example 9.3 (Račun - izvorni oblik - odgovor) → `racun-izvorni-oblik-93-odgovor.xml`
+
+**Special Cases:**
+- If example title contains "Greška" (error), include it in filename
+- Multiple examples with same base description: number makes them unique
+
+#### Phase 5: Write Individual Files
+
+1. Create file in `code-examples/` directory
+2. Write the cleaned XML content
+3. NO additional comments or headers
+4. Content should start with XML declaration (if present) or SOAP envelope
+
+---
+
+### 3.3 Example Categories Reference
+
+| Category | Example Range | Description |
+|----------|---------------|-------------|
+| Invoice (Racun) | 9.1-9.6, 9.31-9.37, 9.38-9.41 | Invoice fiscalization, check, change |
+| Payment Change (Promjena načina plaćanja) | 9.7-9.14 | Payment method change operations |
+| Self-Service (Prodaja samoposlužnih uređaja) | 9.15-9.20 | Self-service device sales |
+| Tip/Gratuity (Napojnica) | 9.21-9.28 | Tip/gratuity fiscalization |
+| Echo Method | 9.29-9.30 | Test/echo operations |
+| Working Hours (Radno vrijeme) | 9.42-9.57 | Working hours operations |
+
+---
+
+### 3.4 Validation Checklist
+
+After extracting all examples, verify:
+
+- [ ] Total of 57 XML files created
+- [ ] All filenames end with `-zahtjev.xml` or `-odgovor.xml`
+- [ ] Each file contains valid XML (well-formed)
+- [ ] SOAP envelope structure is intact
+- [ ] Croatian characters are preserved (č, ć, š, ž, đ)
+- [ ] No page markers or section headers in files
+- [ ] XML declaration present if it was in original example
+- [ ] Element names have no leading/trailing spaces
+- [ ] No empty lines at start or end of files
+- [ ] Examples are numbered 9.1 through 9.57 in sequence
+
+---
+
+### 3.5 Common Pitfalls to Avoid
+
+❌ **WRONG:**
+- Converting Croatian characters to ASCII (č → c, ć → c)
+- Adding or removing line breaks
+- Pretty-printing or indenting XML
+- Adding comments or headers to files
+- Removing trailing spaces in attribute values
+- Changing element name casing
+- Merging multiple examples into one file
+- Splitting one example across multiple files
+
+✅ **CORRECT:**
+- Copy character-for-character from PDF
+- Preserve original line structure
+- Keep Croatian characters exactly as shown
+- One example = one file
+- Clean only page markers and truly empty lines
+- Trim element name spaces ONLY
+- Use exact Croatian text from title for filename
+
+---
+
+### 3.6 Automated Processing Script (Optional)
+
+If using Python or similar:
+
+```python
+import re
+
+def clean_example_content(raw_xml):
+    """Clean raw XML example content."""
+    lines = raw_xml.split('\n')
+    cleaned = []
+
+    for line in lines:
+        # Remove page markers
+        if 'PAGE' in line or 'Stranica' in line:
+            continue
+
+        # Skip empty/whitespace-only lines
+        if not line.strip():
+            continue
+
+        # Trim leading whitespace
+        line = line.lstrip()
+
+        # Trim spaces in element names only
+        line = re.sub(r'<(\s*/?\s*)([^\s>]+)(\s*)>', r'<\1\2>', line)
+
+        cleaned.append(line)
+
+    return '\n'.join(cleaned)
+
+def extract_examples_from_chapter9(pdf_text):
+    """Extract all examples from Chapter 9 text."""
+    # Find all example boundaries using regex
+    # Process each example according to steps above
+    # Generate filenames from titles
+    # Write individual files
+    pass
+```
+
+**Output:** 57 XML files in `code-examples/` directory.
 
 ---
 
@@ -435,7 +631,9 @@ For each service:
 
 - **Files:** kebab-case (e.g., `registration-authentication.md`)
 - **Diagrams:** `flow-{service-name}.mermaid`
-- **Code Examples:** `xml-{entity-name}.xml`
+- **Code Examples:** `{croatian-description}-{number}-{direction}.xml`
+  - Example: `racun-s-elektronickim-potpisom-92-zahtjev.xml`
+  - Direction suffix: `-zahtjev` (request) or `-odgovor` (response)
 - **Directories:** lowercase, hyphen-separated
 
 ### Markdown Standards
@@ -492,7 +690,7 @@ Before finalizing the documentation:
 ### Content Completeness
 
 - [ ] All 6 chapters covered
-- [ ] All code examples extracted (7 XML files)
+- [ ] All code examples extracted (57 XML files from Chapter 9)
 - [ ] All flow diagrams converted (9 Mermaid files)
 - [ ] Schema visualizations intentionally ignored
 - [ ] Version information updated in VERSION.md
